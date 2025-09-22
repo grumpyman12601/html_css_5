@@ -1,0 +1,103 @@
+* {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: hsl(5,89%,36%);
+}
+
+body {
+    font-family: "PT Sans", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+header {
+    border-top: 0.5em solid navy;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#header-grid{
+    /* To do: apply grid styles */
+}
+
+#header-logo {
+    text-align: center;
+    padding: 15px 0; /* Adds space on the top and bottom of the div */
+}
+
+/* These styles apply to a tags inside a nav inside the header */
+header nav a {
+    text-decoration:none;
+    color: navy;
+    font-weight: 700;
+}
+
+#header-top-nav ul {
+    display: flex; /* Places block items side-by-side */
+    justify-content: center; /* Centers flex content horizontally */
+    margin: 0.5em 0; /* Adds space above/below the top nav */
+}
+
+#header-top-nav a {
+    margin-right: 2em; /* Adds space between hyperlinks */
+}
+
+#header-top-nav li:nth-child(3) a {
+    margin-right: 0; /* Removes added space after the last one */
+}
+
+#header-top-nav a:hover {
+    text-decoration: underline;
+}
+
+#header-top-nav span {
+    color: deepskyblue;
+}
+
+#header-contact-mobile-nav {
+    background-color: navy;
+    display: flex; /* Places the contact button and mobile nav on same horizontal line */
+    justify-content: space-between; /* Places the contact button on left and mobile navigation on right */
+    align-items: center; /* Vertically centers the contact button with the mobile navigation */
+}
+
+/* Class selectors start with a period */
+.btn {
+    background-color: rgb(0, 191, 255);
+    color: white;
+    padding: 1em 1.5em; /* Adds space between border and text. This code adds more space on the left/right than top/bottom */
+    display: inline-block; /* Hyperlinks are inline elements by default. This will make the parent element's height the same as the child element's height */
+}
+
+.btn:hover {
+    background-color: rgb(69, 208, 255);
+}
+
+#mobile-nav {
+    color: white;
+    font-size: 2em; /* Makes the navigation icon bigger */
+    margin: 0 0.25em; /* Adds space to the left/right of the mobile nav */
+}
+
+#header-bottom-nav li {
+    border-bottom: 1px solid lightgrey;
+}
+
+#header-bottom-nav a {
+    font-size: 1.2em; /* Increases font-size 20% */
+    display: inline-block; /* A tags are inline elements by default. Making this an inline-block allows you to add top/bottom padding and margin */
+    padding: 20px;
+}
+
+#header-bottom-nav .active, #header-bottom-nav a:hover {
+    color: deepskyblue;
+}
