@@ -5,7 +5,9 @@
 }
 
 :root {
-    --red: hsl(5,89%,36%);
+    --navy: rgb(0, 0, 128);
+    --blue: rgb(0, 191, 255);
+    --blue-light: rgb(69, 208, 255);
 }
 
 body {
@@ -21,12 +23,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    border-top: 0.5em solid navy;
+    border-top: 0.5em solid var(--navy);
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-}
-
-#header-grid{
-    /* To do: apply grid styles */
 }
 
 #header-logo {
@@ -37,7 +35,7 @@ header {
 /* These styles apply to a tags inside a nav inside the header */
 header nav a {
     text-decoration:none;
-    color: navy;
+    color: var(--navy);
     font-weight: 700;
 }
 
@@ -60,11 +58,11 @@ header nav a {
 }
 
 #header-top-nav span {
-    color: deepskyblue;
+    color: var(--blue);
 }
 
 #header-contact-mobile-nav {
-    background-color: navy;
+    background-color: var(--navy);
     display: flex; /* Places the contact button and mobile nav on same horizontal line */
     justify-content: space-between; /* Places the contact button on left and mobile navigation on right */
     align-items: center; /* Vertically centers the contact button with the mobile navigation */
@@ -72,21 +70,25 @@ header nav a {
 
 /* Class selectors start with a period */
 .btn {
-    background-color: rgb(0, 191, 255);
+    background-color: var(--blue);
     color: white;
     padding: 1em 1.5em; /* Adds space between border and text. This code adds more space on the left/right than top/bottom */
     display: inline-block; /* Hyperlinks are inline elements by default. This will make the parent element's height the same as the child element's height */
+    text-decoration:none;
+    font-weight: 700;
 }
 
 .btn:hover {
-    background-color: rgb(69, 208, 255);
+    background-color: var(--blue-light);
 }
 
 #mobile-nav {
     color: white;
     font-size: 2em; /* Makes the navigation icon bigger */
     margin: 0 0.25em; /* Adds space to the left/right of the mobile nav */
+    cursor: pointer;
 }
+
 
 #header-bottom-nav li {
     border-bottom: 1px solid lightgrey;
@@ -94,10 +96,29 @@ header nav a {
 
 #header-bottom-nav a {
     font-size: 1.2em; /* Increases font-size 20% */
-    display: inline-block; /* A tags are inline elements by default. Making this an inline-block allows you to add top/bottom padding and margin */
+    display: block; /* A tags are inline elements by default. Making this a block allows you to add top/bottom padding and margin, and makes it full width */
     padding: 20px;
 }
 
 #header-bottom-nav .active, #header-bottom-nav a:hover {
-    color: deepskyblue;
+    color: var(--blue);
+}
+
+
+#jumbotron-text {
+    background-image: url("https://www.lynchdallas.com/application/themes/lynchdallas/img/bkg-pattern.jpg");
+    padding: 1.5em;
+}
+
+#jumbotron-text h1 {
+    color: var(--blue);
+    font-size: 2.5em;
+    font-weight: 400; /* Don't make the text bold */
+    line-height: 1.25em;
+}
+
+#jumbotron-text p {
+    color: white;
+    margin: 1em 0; /* Add space above and below paragraph */
+    line-height: 1.25em;
 }

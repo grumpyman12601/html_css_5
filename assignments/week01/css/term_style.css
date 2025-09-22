@@ -1,0 +1,62 @@
+
+.terminal-box {
+    background-color: #1a1a1a; /* Dark Background */
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Courier New', monospace; /* Monospaced Font */
+    color: #00ff00; /* Green Text for a classic terminal look */
+    width: auto;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+.terminal-header {
+    background-color: #000000;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+}
+
+.github-image {
+    width: 24px;
+    height: 24px;
+}
+
+.title {
+    color: #ccc;
+    font-size: 0.9em;
+    margin-left: auto;
+}
+
+.terminal-body {
+    padding: 15px;
+}
+
+.terminal-line {
+    display: flex;
+}
+
+.prompt {
+    color: #00ff00; /* Green for text prompt */
+    margin-right: 5px;
+}
+
+.terminal-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #00ff00; /* Green input text */
+    caret-color: #00ff00; /* Green for the blinking cursor */
+    flex-grow: 1;
+    white-space: pre-wrap; /* Preserve whitespace + wrap text */
+}
+
+.terminal-input:focus {
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: #00ff00; }
+  }
