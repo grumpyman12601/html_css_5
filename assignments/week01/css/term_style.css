@@ -10,7 +10,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 .terminal-header {
-    background-color: #000000;
+    background-color: #575757;
     padding: 8px 12px;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@
 }
 
 .title {
-    color: #ccc;
+    color: #00ff08;
     font-size: 0.9em;
     margin-left: auto;
 }
