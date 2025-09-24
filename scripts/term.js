@@ -1,3 +1,4 @@
+// Had chatGPT generate a terminal, hosted here(https://grumpyman12601.github.io/html_sandbox/terminal.html) and I referenced it to make my own.
 const terminalBody = document.getElementById('terminal-body');
 
 terminalBody.addEventListener('keydown', (event) => {

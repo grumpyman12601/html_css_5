@@ -1,4 +1,4 @@
-* {
+:s * {
     max-width: 100%;
     max-height: 100%;
     box-sizing: border-box;
@@ -113,7 +113,7 @@ header nav a {
 #jumbotron-text h1 {
     color: var(--blue);
     font-size: 2.5em;
-    font-weight: 400; /* Don't make the text bold */
+    font-weight: normal; /* Don't make the text bold */
     line-height: 1.25em;
 }
 
@@ -121,4 +121,28 @@ header nav a {
     color: white;
     margin: 1em 0; /* Add space above and below paragraph */
     line-height: 1.25em;
+}
+
+
+#about-us {
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* Source: https://stackoverflow.com/a/6382036/6629315 */
+#about-us hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+#about-us h4 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    margin: 20px 0;
+    color: var(--navy);
 }
