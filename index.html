@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main page</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>grumpyman1's website</title>
 </head>
 <body>
-<a href="https://grumpyman12601.github.io/html_css_5/assignments/demo-project/index.html">demo-project 1</a>
-<br>
-<a href="https://grumpyman12601.github.io/html_css_5/assignments/demo-project2/index.html">demo-project 2</a>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/photo.png" alt="logo" width="50">
+            <h1>grumpyman1's website</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="terminal-box">
+            <div class="terminal-header">
+                <span class="title">Terminal (type "help" for commands)</span>
+                <a class="github-link" href="https://www.github.com/grumpyman12601" target="_blank" rel="noopener noreferrer">
+                    <img class="github-image" src="images/github-mark-white.png" alt="Link to github">
+                </a>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span contenteditable="true" class="terminal-input"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
