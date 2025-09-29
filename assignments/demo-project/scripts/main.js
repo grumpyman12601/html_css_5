@@ -1,6 +1,9 @@
 $(document).ready(() => {
     const mobileNav = $('#mobile-nav');
-    const headerBottomNav = $('#header-bottom-nav');
+    const header = $('header');
 
-    mobileNav.click(() => headerBottomNav.toggle());
+    mobileNav.click(() => {
+        // When the button is clicked, add or remove the 'nav-open' class on the header
+        header.toggleClass('nav-open');
+});
 });
