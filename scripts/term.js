@@ -27,6 +27,24 @@ terminalBody.addEventListener('keydown', (event) => {
                     errorLine.textContent = 'go: missing destination, try "go index.html"';
                     terminalBody.appendChild(errorLine);
                 }
+
+             } else if (command =='clear') {
+                        terminalBody.innerHTML = '';
+
+
+             } else if (command =='help') { // checks for command
+                    const helpLine1 = document.createElement('div'); //Creates a div tag for the help line to go
+                    helpLine1.classList.add('terminal-line'); // Adds a css class 'terminal-line' to give the terminal a new line. Adds to the element's list of classes.
+                    helpLine1.textContent = 'help - Displays a list of available commands'; // Displays help command on the terminal-line
+                    terminalBody.appendChild(helpLine1); // Append (Adds) the terminal line to the page I assume I'm not positive.
+                    // Now reuse this code for every other command listed. 
+
+                    const helpLine2 = document.createElement('div');
+                    helpLine2.classList.add('terminal-line');
+                    helpLine2.textContent = 'go - Takes the user to any link on my website. To visit any website, add https:// before the url. (like https://google.com)'
+                    terminalBody.appendChild(helpLine2);
+
+
             } else {
                 // Handle any other command as "unknown".
                 const unknownCmdLine = document.createElement('div');
