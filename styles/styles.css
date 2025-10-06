@@ -42,11 +42,15 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.2);
+    background: transparent;
     border-bottom: 1px solid transparent;
     box-sizing: border-box;
     transition: background-color 0.3s ease;
     font-family: 'Chakra Petch', sans-serif;
+}
+
+header.menu-open {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 header.scrolled {
@@ -263,38 +267,45 @@ main {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .navbar {
-        display: none;
         position: absolute;
-        top: 70px;
+        top: 71px;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.2); /* Slight transparency by default */
-        transition: background-color 0.3s ease;
+        background-color: transparent;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease, background-color 0.3s ease;
     }
 
     .navbar a {
-        color: dimgray; /* Dark gray for readability by default */
+        color: white;
     }
 
-    /* On scroll, make the background darker to match the header */
+    .navbar.open {
+        max-height: 500px; /* A large enough value to show all menu items */
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar.open ul {
+        opacity: 1;
+        transition: opacity 0.3s ease-in 0.1s; /* Fade in with a slight delay */
+    }
+
     header.scrolled .navbar.open {
         background-color: rgba(0, 0, 0, 0.9);
     }
 
-    /* On scroll, change the text color back to green for visibility */
     header.scrolled .navbar.open a {
         color: rgb(0, 192, 0);
-    }
-
-    .navbar.open {
-        display: block;
     }
 
     .navbar ul {
         flex-direction: column;
         width: 100%;
+        opacity: 0;
+        transition: opacity 0.2s ease-out; /* Fade out slightly faster */
     }
 
     .navbar li {

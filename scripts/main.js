@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuButton && navbar) {
         menuButton.addEventListener('click', () => {
             navbar.classList.toggle('open');
+            header.classList.toggle('menu-open');
         });
     }
 });
