@@ -143,6 +143,23 @@ main {
     color: #ccc;
 }
 
+.cta-button {
+    display: inline-block;
+    background-color: #00ff00;
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Chakra Petch', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00b300;
+    transform: translateY(-2px);
+}
+
 .content-section {
     display: flex;
     flex-direction: column;
@@ -263,6 +280,12 @@ main {
         order: 1;
     }
 }
+
+
+section.content-section:nth-of-type(3) .content-column-visual {
+    text-align: right;
+  }
+  
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
