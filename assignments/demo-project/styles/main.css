@@ -106,7 +106,7 @@ header nav a {
 
 
 #jumbotron-text {
-   background-image: url("https://www.lynchdallas.com/application/themes/lynchdallas/img/bkg-pattern.jpg");
+    background-image: url("https://www.lynchdallas.com/application/themes/lynchdallas/img/bkg-pattern.jpg");
     padding: 1.5em;
 }
 
@@ -192,73 +192,112 @@ header nav a {
     color: #555;
 }
 
-#footer-contact {
+
+
+.parallax {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+    background-image: url('https://www.lynchdallas.com/application/files/7515/9231/1199/feature-full.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .parallax-text {
+    z-index: 1;
+    background-image: url("https://www.lynchdallas.com/application/themes/lynchdallas/img/bkg-pattern.jpg");
+    padding: 1.5em;
+    width: 80%;
+    border-top: 5px solid var(--blue);
+  }
+  
+  .parallax-text h3 {
+    color: var(--blue);
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.25em;
+  }
+  
+  .parallax-text h4 {
+    color: 
+  white;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  
+  .parallax-text p {
+    color: 
+  white;
+    margin: 1em 0; /* Add space above and below paragraph */
+    line-height: 1.25em;
+  }
+  
+  
+  #footer-contact {
     padding: 40px 20px;
-}
-#footer-contact .col {
+  }
+
+  #footer-contact .col {
     margin: 20px;
-}
+  }
 
-#footer-content h3 {
+  #footer-contact h3 {
     font-size: 24px;
-}
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
 
-
-#footer-contact h4 {
+  #footer-contact h4 {
     font-size: 16px;
-    font-family: 'PT Sans', sans-rerif;
+    font-family: 'PT Sans', sans-serif;
     text-transform: uppercase;
     margin: 10px 0;
-}
+  }
 
-#footer-contact p {
+  #footer-contact p {
     line-height: 20px;
     margin: 20px 0;
-}
-#footer-contact a {
+  }
+
+  #footer-contact a {
     color: #222;
     text-decoration: none;
-}
+  }
 
-#footer-contact a:hover {
-    color: #222;
-    text-decoration: underline;
-}
-
-#footer-contact table {
+  #footer-contact table {
     margin: 20px 0;
-}
+  }
 
-#footer-contact table th {
+  #footer-contact table th {
     font-weight: bold;
-}
+  }
 
-#footer-contact table th,
-#footer-contact table td {
-    font-weight: bold;
+  #footer-contact table th, 
+  #footer-contact table td {
     text-align: left;
     padding: 8px;
     padding-left: 0;
-}
+  }
 
-#footer-copyright {
-    background-color: #222;
-    color: #999;
-    padding: 24px;
-    text-align: center;
-    font-size: 13px;
-}
 
-#footer-copyright a {
-    color: #999;
-    text-decoration: none;
-}
-
-#footer-copyright a:hover {
+  #footer-contact a:hover {
     text-decoration: underline;
-}
+  }
 
-#footer-contact .social-icons a {
+  #footer-contact .social-icons a {
     display: inline-block;
     width: 45px;
     height:45px;
@@ -274,13 +313,31 @@ header nav a {
 #footer-contact .social-icons a:hover {
     background-color: var(--navy);
     transform: scale(1.2);
-}
+} 
 
-#footer-cta {
-    background: 
-  #333;
-    color: 
-  #fff;
+
+
+  #footer-copyright {
+    background-color: #222;
+    color: #999;
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  #footer-copyright a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  #footer-copyright a:hover {
+    text-decoration: underline;
+   }
+
+
+   #footer-cta {
+    background: #333;
+    color: #fff;
     text-align: center;
     padding: 25px;
     position:relative;
@@ -313,8 +370,7 @@ header nav a {
   }
   
   #footer-cta a {
-    color: 
-  white;
+    color: white;
     text-decoration: none;
     font-size: 24px;
     display: block;
@@ -330,11 +386,11 @@ header nav a {
   }
   
   #footer-cta a span {
-    color: 
-  deepskyblue;
+    color: var(--blue);
   }
   
   #footer-cta .btn {
     font-size: 16px;
     display: inline-block;
+    text-decoration: none;
   }
