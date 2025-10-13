@@ -1,85 +1,306 @@
-// Had chatGPT generate a terminal, hosted here(https://grumpyman12601.github.io/html_sandbox/terminal.html) and I referenced it to make my own.
-// I don't have AI modify my code, I give my code to AI and have it output instructions, instead of just coding for me.
-const terminalBody = document.getElementById('terminal-body');
+// THIS TERMINAL IS AI GENERATED. FOR A NOT AI GENERATED TERMINAL, NAVIGATE TO termBU.js. 
+const terminalOutput = document.getElementById('terminal-output');
+const terminalInput = document.getElementById('terminal-input');
+const promptText = document.getElementById('prompt-text');
 
-terminalBody.addEventListener('keydown', (event) => {
+const filesystem = {
+    'type': 'directory',
+    'children': {
+        'assignments': {
+            'type': 'directory',
+            'children': {
+                'demo-project': {
+                    'type': 'directory',
+                    'children': {
+                        'index.html': {
+                            'type': 'file',
+                            'content': 'Navigate to the demo project.'
+                        }
+                    }
+                },
+                'demo-project2': {
+                    'type': 'directory',
+                    'children': {
+                        'index.html': {
+                            'type': 'file',
+                            'content': 'Navigate to the second demo project.'
+                        }
+                    }
+                },
+                 'html_css_5': {
+                    'type': 'directory',
+                    'children': {
+                        'demo-project': {
+                            'type': 'directory',
+                            'children': {
+                                'index.html': {
+                                    'type': 'file',
+                                    'content': 'Navigate to the html_css_5 demo project.'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        'demo-midterm': {
+            'type': 'directory',
+            'children': {
+                'index.html': {
+                    'type': 'file',
+                    'content': 'Navigate to the demo midterm project.'
+                }
+            }
+        },
+        'scripts': {
+            'type': 'directory',
+            'children': {
+                'main.js': {
+                    'type': 'file',
+                    'content': 'Main JavaScript file.'
+                },
+                'term.js': {
+                    'type': 'file',
+                    'content': 'Terminal JavaScript file.'
+                }
+            }
+        },
+        'styles': {
+            'type': 'directory',
+            'children': {
+                'styles.css': {
+                    'type': 'file',
+                    'content': 'Main CSS file.'
+                }
+            }
+        },
+        'index.html': {
+            'type': 'file',
+            'content': 'Main HTML file.'
+        },
+        'home.html': {
+            'type': 'file',
+            'content': 'Test page for Home.'
+        },
+        'about.html': {
+            'type': 'file',
+            'content': 'Test page for About.'
+        },
+        'experience.html': {
+            'type': 'file',
+            'content': 'Test page for Experience.'
+        },
+        'projects.html': {
+            'type': 'file',
+            'content': 'Test page for Projects.'
+        },
+        'contact.html': {
+            'type': 'file',
+            'content': 'Test page for Contact.'
+        }
+    }
+};
+
+let currentDirectory = filesystem;
+let currentPath = '~';
+let commandHistory = [];
+let historyIndex = -1;
+
+function updatePrompt() {
+    promptText.textContent = `${currentPath} $`;
+}
+
+function printToTerminal(content) {
+    const line = document.createElement('div');
+    line.classList.add('terminal-line');
+    line.innerHTML = content;
+    terminalOutput.appendChild(line);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+terminalInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
 
-        const currentInput = event.target;
-        currentInput.contentEditable = false;
+        const commandText = terminalInput.value.trim();
+        terminalInput.value = '';
 
-        const commandText = currentInput.textContent.trim();
-        const commandParts = commandText.split(' ');
-        const command = commandParts[0].toLowerCase();
-        const argument = commandParts[1];
+        if (commandText) {
+            commandHistory.unshift(commandText);
+            historyIndex = -1;
 
-        if (commandText) { // First, check if the user typed anything at all.
-            if (command === 'go') {
-                if (argument) {
-                    let url = argument;
-                    // Special case for localhost
-                    if (url.startsWith('localhost')) {
-                        window.location.href = 'http://' + url;
-                    }
-                    // If it looks like a local file path (no domain dot) or ends with .html
-                    else if (!url.includes('.') || url.endsWith('.html')) {
-                        if (!url.endsWith('.html')) {
-                            url += '.html';
+            printToTerminal(`<span class="prompt">${currentPath} $</span> ${commandText}`);
+
+            const commandParts = commandText.split(' ');
+            const command = commandParts[0].toLowerCase();
+            const argument = commandParts.slice(1).join(' ');
+
+            switch (command) {
+                case 'go':
+                    if (argument) {
+                        let fullPath;
+                        if (argument.startsWith('~') || argument.startsWith('/')) {
+                            fullPath = argument.replace(/^~\/?/, '');
+                        } else if (currentPath === '~') {
+                            fullPath = argument;
+                        } else {
+                            const basePath = currentPath.substring(2);
+                            fullPath = `${basePath}/${argument}`;
                         }
-                        window.location.href = url;
-                    }
-                    // Otherwise, assume it's an external URL
-                    else {
-                        if (!url.startsWith('http')) {
-                            url = 'http://' + url;
+
+                        const pathParts = fullPath.split('/').filter(p => p);
+                        let target = filesystem;
+                        let valid = true;
+                        for (const part of pathParts) {
+                            if (target && target.type === 'directory' && target.children[part]) {
+                                target = target.children[part];
+                            } else {
+                                valid = false;
+                                break;
+                            }
                         }
-                        window.location.href = url;
+
+                        if (valid && target.type === 'file') {
+                            window.location.href = fullPath;
+                        } else {
+                            printToTerminal(`go: not a navigable file: ${argument}`);
+                        }
+                    } else {
+                        printToTerminal('go: missing destination');
                     }
-                    return; // Stop the function here since we are navigating away.
-                } else {
-                    // If no url is provided, give an error message.
-                    const errorLine = document.createElement('div');
-                    errorLine.classList.add('terminal-line');
-                    errorLine.textContent = 'go: missing destination, try "go index"';
-                    terminalBody.appendChild(errorLine);
-                }
+                    break;
 
-            } else if (command === 'help') {
-                const helpLine1 = document.createElement('div');
-                helpLine1.classList.add('terminal-line');
-                helpLine1.textContent = 'help  - Displays this list of available commands.';
-                terminalBody.appendChild(helpLine1);
+                case 'help':
+                    printToTerminal('<strong>help</strong>    - Displays this list of available commands.');
+                    printToTerminal('<strong>go</strong>      - Navigates to a page. Usage: "go assignments/demo-project/index.html"');
+                    printToTerminal('<strong>clear</strong>   - Clears the terminal screen.');
+                    printToTerminal('<strong>ls</strong>      - Lists files and directories.');
+                    printToTerminal('<strong>cd</strong>      - Changes the current directory.');
+                    printToTerminal('<strong>cat</strong>     - Displays the content of a file.');
+                    break;
 
-                const helpLine2 = document.createElement('div');
-                helpLine2.classList.add('terminal-line');
-                helpLine2.textContent = 'go    - Navigates to a page. Usage: "go index" or "go google.com"';
-                terminalBody.appendChild(helpLine2);
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
 
-                const helpLine3 = document.createElement('div');
-                helpLine3.classList.add('terminal-line');
-                helpLine3.textContent = 'clear - Clears the terminal screen.';
-                terminalBody.appendChild(helpLine3);
+                case 'ls':
+                    if (currentDirectory.type === 'directory') {
+                        const items = Object.keys(currentDirectory.children);
+                        printToTerminal(items.join('  '));
+                    } else {
+                        printToTerminal('ls: not a directory');
+                    }
+                    break;
 
-            } else if (command =='clear') {
-                terminalBody.innerHTML = '';
+                case 'cd':
+                    if (!argument || argument === '~') {
+                        currentDirectory = filesystem;
+                        currentPath = '~';
+                    } else if (argument === '..') {
+                        if (currentPath !== '~') {
+                            const pathParts = currentPath.replace(/^~\/?/, '').split('/');
+                            pathParts.pop();
 
-            } else {
-                // Handle any other command as "unknown".
-                const unknownCmdLine = document.createElement('div');
-                unknownCmdLine.classList.add('terminal-line');
-                unknownCmdLine.textContent = `command not found: ${commandText}`;
-                terminalBody.appendChild(unknownCmdLine);
+                            currentDirectory = filesystem;
+                            pathParts.forEach(part => {
+                                currentDirectory = currentDirectory.children[part];
+                            });
+
+                            if (pathParts.length > 0) {
+                                currentPath = '~/' + pathParts.join('/');
+                            } else {
+                                currentPath = '~';
+                            }
+                        }
+                    } else {
+                        if (currentDirectory.children && currentDirectory.children[argument] && currentDirectory.children[argument].type === 'directory') {
+                            currentDirectory = currentDirectory.children[argument];
+                            if (currentPath === '~') {
+                                currentPath = `~/${argument}`;
+                            } else {
+                                currentPath += `/${argument}`;
+                            }
+                        } else {
+                            printToTerminal(`cd: no such file or directory: ${argument}`);
+                        }
+                    }
+                    updatePrompt();
+                    break;
+
+                case 'cat':
+                    if (argument) {
+                        let fullPath;
+                        if (argument.startsWith('~') || argument.startsWith('/')) {
+                            fullPath = argument.replace(/^~\/?/, '');
+                        } else if (currentPath === '~') {
+                            fullPath = argument;
+                        } else {
+                            const basePath = currentPath.substring(2);
+                            fullPath = `${basePath}/${argument}`;
+                        }
+
+                        const pathParts = fullPath.split('/').filter(p => p);
+                        let target = filesystem;
+                        let valid = true;
+                        for (const part of pathParts) {
+                            if (target && target.type === 'directory' && target.children[part]) {
+                                target = target.children[part];
+                            } else {
+                                valid = false;
+                                break;
+                            }
+                        }
+
+                        if (valid && target.type === 'file') {
+                            fetch(fullPath)
+                                .then(response => {
+                                    if (response.ok) {
+                                        return response.text();
+                                    }
+                                    throw new Error(`cat: ${argument}: Cannot access file`);
+                                })
+                                .then(text => {
+                                    const escapedText = text.replace(/&/g, "&amp;")
+                                                            .replace(/</g, "&lt;")
+                                                            .replace(/>/g, "&gt;")
+                                                            .replace(/"/g, "&quot;")
+                                                            .replace(/'/g, "&#039;");
+                                    printToTerminal(`<pre>${escapedText}</pre>`);
+                                })
+                                .catch(error => {
+                                    printToTerminal(error.toString());
+                                });
+                        } else {
+                            printToTerminal(`cat: ${argument}: No such file or directory`);
+                        }
+                    } else {
+                        printToTerminal('cat: missing operand');
+                    }
+                    break;
+
+                default:
+                    printToTerminal(`command not found: ${commandText}`);
+                    break;
             }
         }
-
-        // After any command is processed (or if the input was empty), add a new line for the next command.
-        const newLine = document.createElement('div');
-        newLine.classList.add('terminal-line');
-        newLine.innerHTML = '<span class="prompt">$</span> <span contenteditable="true" class="terminal-input"></span>';
-
-        terminalBody.appendChild(newLine);
-        // Focus on the new input field.
-        newLine.querySelector('.terminal-input').focus();
+    } else if (event.key === 'ArrowUp') {
+        if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            terminalInput.value = commandHistory[historyIndex];
+        }
+    } else if (event.key === 'ArrowDown') {
+        if (historyIndex > 0) {
+            historyIndex--;
+            terminalInput.value = commandHistory[historyIndex];
+        } else {
+            historyIndex = -1;
+            terminalInput.value = '';
+        }
     }
 });
+
+document.getElementById('terminal-body').addEventListener('click', () => {
+    terminalInput.focus();
+});
+
+updatePrompt();

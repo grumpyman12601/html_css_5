@@ -175,7 +175,7 @@ main {
 
 .content-column-visual {
     order: 1;
-    margin-bottom: var(--space-md); /* Use fluid space */
+    margin-bottom: var(--space-md);
 }
 
 .content-column-text h2 {
@@ -245,6 +245,10 @@ main {
     margin-right: 5px;
 }
 
+.terminal-line-input {
+    display: flex;
+}
+
 .terminal-input {
     background: none;
     border: none;
@@ -252,24 +256,25 @@ main {
     color: #00ff00;
     caret-color: #00ff00;
     flex-grow: 1;
-    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
 }
 
-/* For tablets and larger screens it switches to two-column layout. AI said that this would be important. */
+/* For tablets and larger screens */
 @media (min-width: 768px) {
     .content-section {
         flex-direction: row;
         align-items: center;
-        gap: var(--space-lg); /* Use fluid gap */
+        gap: var(--space-lg);
     }
 
     .content-column-text, .content-column-visual {
         flex: 1;
-        order: initial; /* Reset order for desktop */
+        order: initial;
     }
 
     .content-column-visual {
-        margin-bottom: 0; /* Remove mobile margin */
+        margin-bottom: 0;
     }
 
     /* Alternating layout for visual interest */
@@ -281,6 +286,22 @@ main {
     }
 }
 
+/* Force side-by-side for the first content section (Bookshelf) */
+main > .content-section:first-of-type {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+main > .content-section:first-of-type .content-column-text,
+main > .content-section:first-of-type .content-column-visual {
+    flex: 1;
+    order: initial;
+}
+
+main > .content-section:first-of-type .content-column-visual {
+    margin-bottom: 0;
+}
 
 section.content-section:nth-of-type(3) .content-column-visual {
     text-align: right;
