@@ -1,0 +1,231 @@
+* {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --DarkViolet: hsl(256, 26%, 20%);
+    --GrayishBlue: hsl(216, 30%, 68%);
+
+    --VeryDarkViolet: hsl(270, 9%, 17%);
+    --DarkGrayishViolet: hsl(273, 4%, 51%);
+    --light-gray: hsl(0, 0%, 98%);
+
+    --fw-DM: 400;
+
+    --fw-KarlaRegular: 400;
+    --fw-KarlaBold: 700;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+header {
+    background: var(--white);
+    border-radius: 0 0 0 0px;
+}
+
+#header-mobile-nav {
+    padding: 16px 16px 8px;
+    display: flex; /* Places the contact button and mobile nav on same horizontal line */
+    justify-content: space-between; /* Places the contact button on left and mobile navigation on right */
+    align-items: center; /* Vertically centers the contact button with the mobile navigation */
+}
+
+#mobile-nav {
+    color: white;
+    font-size: 2em; /* Makes the navigation icon bigger */
+    margin: 0 0.25em; /* Adds space to the left/right of the mobile nav */
+    cursor: pointer;
+}
+
+#header-bottom-nav {
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+#header-bottom-nav li {
+    border-bottom: 1px solid lightgrey;
+}
+
+#header-bottom-nav a {
+    font-size: 1.2em; /* Increases font-size 20% */
+    display: block; /* A tags are inline elements by default. Making this a block allows you to add top/bottom padding and margin, and makes it full width */
+    padding: 20px;
+    text-decoration:none;
+    color: var(--gray-dark);
+    font-weight: 700;
+}
+
+#footer ul li:hover path {
+    fill: var(--VeryDarkViolet);
+}
+
+
+#footer ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer ul li {
+    padding: 10px;
+    transition: 0.3s;
+}
+
+#header-bottom-nav .active, #header-bottom-nav a:hover {
+    color: var(--gray-dark);
+}
+
+#jumbotron {
+    padding: 150px 40px;
+    text-align: center;
+    background-color: var(--DarkViolet);
+}
+#jumbotron intro-mobile {
+    display: block;
+    background-color: var(--DarkViolet);
+
+}
+
+#family-walking {
+    background-image: url("../images/image-intro-mobile.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+
+}
+.intro-mobile {
+    margin-bottom: 10px;
+}
+#jumbotron h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+    color: var(--light-gray)
+}
+
+#jumbotron p {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-weight: 300;
+    margin: 30px 0;
+    color: var(--light-gray)
+}
+
+.btn {
+    padding: 12px 24px 10px;
+    border: 2px solid white;
+    border-radius: 0px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-filled {
+    background-color: white;
+    color: var(--gray-dark);
+}
+
+
+footer {
+    background-color: var(--gray-light);
+    text-align: center;
+    padding: 100px 40px;
+    border-radius: 0 100px 0 0;
+}
+
+footer h3 {
+    color: var(--DarkGrayishViolet);
+    margin: 20px 0;
+}
+
+footer a {
+    color: var(--gray-light);
+    text-decoration: none;
+    padding: 5px;
+    display: inline-block;
+}
+
+footer hr {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+main {
+    text-align: center;
+    padding: 100px 50px;
+}
+
+main h2 {
+    font-size: 2em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 40px 0;
+    color: var(--gray-dark);
+}
+
+main p {
+    color: var(--gray-medium);
+    font-size: 1.2em;
+    line-height: 1.6em;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+#infrastructure {
+    background-color: var(--gray-light);
+    margin: 0 -50px;
+    width: 100
+}
+
+#infrastructure h2, #infrastructure p {
+    color: white;
+}
+
+
+#footer-bottom-nav ul {
+    display: flex; /* Places block items side-by-side */
+    justify-content: center; /* Centers flex content horizontally */
+    margin: 0.5em 0; /* Adds space above/below the top nav */
+    size: 24px;
+}
+
+#footer-bottom-nav a {
+    margin-right: 2em; /* Adds space between hyperlinks */
+}
+
+#footer-bottom-nav li:nth-child(3) a {
+    margin-right: 0; /* Removes added space after the last one */
+}
+
+#footer-bottom-nav a:hover {
+    text-decoration: underline;
+}
+
+#header-top-nav span {
+    color: var(--blue);
+}
