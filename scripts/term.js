@@ -171,12 +171,12 @@ terminalInput.addEventListener('keydown', (event) => {
                     break;
 
                 case 'help':
-                    printToTerminal('<strong>help</strong>    - Displays this list of available commands.');
-                    printToTerminal('<strong>go</strong>      - Navigates to a page. Usage: "go assignments/demo-project/index.html"');
-                    printToTerminal('<strong>clear</strong>   - Clears the terminal screen.');
-                    printToTerminal('<strong>ls</strong>      - Lists files and directories.');
-                    printToTerminal('<strong>cd</strong>      - Changes the current directory.');
-                    printToTerminal('<strong>cat</strong>     - Displays the content of a file.');
+                    printToTerminal('help    - Displays this list of available commands.');
+                    printToTerminal('go      - Navigates to a page. Usage: "go assignments/demo-project/index.html"');
+                    printToTerminal('clear   - Clears the terminal screen.');
+                    printToTerminal('ls      - Lists files and directories.');
+                    printToTerminal('cd      - Changes the current directory.');
+                    printToTerminal('cat     - Displays the content of a file.');
                     break;
 
                 case 'clear':

@@ -21,7 +21,7 @@
   </style>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script defer src="scripts/main.js"></script>
+  <script defer src="javascript/main.js"></script>
 </head>
 <body>
   <header>
@@ -33,9 +33,10 @@
                 alt="Insure Logo">
               </a>
             </div>
-            <div id="mobile-nav"><img src="/midterm/images/icon-hamburger.svg" class="hamburger"></i></div>
+            <div id="mobile-nav">
+              <img src="images/icon-hamburger.svg" class="hamburger" alt="Mobile navigation button"></div>
         </nav>
-        <nav id="header-bottom-nav" style="display: none">
+        <nav id="header-bottom-nav">
         <ul>
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#">Product</a></li>
@@ -45,10 +46,10 @@
         </nav>
     </div>
 
-    <div id="jumbotron">
-      <div id="family-walking">
+    <div id="family-walking">
 
-      </div>
+    </div>
+    <div id="jumbotron">
 
 
       <h1>Humanizing your insurance.</h1>
@@ -60,80 +61,100 @@
   </header>
 
   <div id="jumbotron2">
-    <h1>A modern publishing platform</h1>
-    <p>Grow your audience and build your online brand</p>
-
-
-    <a href="#" class="btn">Learn More</a>
+<!--Keeping just in case-->  
   </div>
 
-</header>
-
   <main>
+    <img
+    class="desktop-left-decor-pattern"
+    src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581473824/bg-pattern-intro-left-desktop_htcyuz.svg"
+    alt="insure decoration pattern">
+    <section class="main_about">
+      <div class="hr"></div>
+      <h2>We're different</h2>
+      <div class="about-services">
+        <div class="snappy-process">
+          <img src="images/icon-snappy-process.svg"
+            alt="icon for snappy process">
+          <h3>Snappy Process</h3>
+          <p>
+            Our application process can be completed in minutes, not hours. <br>Don’t get stuck filling in tedious forms.
+          </p>
+        </div>
+        <div class="Affordable-prices">
+          <img
+            src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581474073/icon-affordable-prices_mvi5se.svg"
+            alt="icon Affordable prices service being offered">
+          <h3>Affordable Prices</h3>
+          <p>
+            We don’t want you worrying about high monthly costs. Our prices <br>
+            may be low, but we still offer the best coverage possible
+          </p>
+        </div>
+        <div class="people-first">
+          <img
+            src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581474092/icon-people-first_ozsx4g.svg"
+            alt="icon people first service being offered">
+          <h3>People First</h3>
+          <p>
+            Our plans aren’t full of conditions and clauses to prevent <br>
+            payouts. We make sure you’re covered when you need it.
+          </p>
+        </div>
+      </div>
+    </section>
+  <div id="jumbotron2">
+    <img
+    class="desktop-right-decor-pattern"
+    src="images/bg-pattern-intro-right-desktop.svg"
+    alt="insure decoration pattern">
 
-  <h2>Designed for the future</h2>
-  <img src="images/illustration-editor-mobile.svg" alt="Graphic of a line chart">
-
-  <h2>Introducing an extensible editor</h2>
-  <p>Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
-  The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
-  videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
-  change the looks of a blog.</p>
-
-  <h2>Robust content management</h2>
-  <p>Flexible content management enables users to easily move through posts. Increase the usability of your blog 
-  by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.</p>
-
-  <!-- <div id="infrastructure">
-    <img src="images/illustration-phones.svg" alt="Two cellphone graphics with Blogr logo">
-    <h2>State of the Art Infrastructure</h2>
-    <p>With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. 
-    This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.</p>
-  </div> -->
-
-  <h2>Free, open, simple</h2>
-  <p>Blogr is a free and open source application backed by a large community of helpful developers. It supports 
-  features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
-  and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.</p>
-
-  <h2>Powerful tooling</h2>
-  <p>Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
-  capable of producing even the most complicated sites.</p>
+      <h1>Find out more <br> about how we work</h1>
+      <a href="#" class="btn">HOW WE WORK</a>
+      
+    </div>
 
   </main>
 
   <footer>
-    <img src="images/logo.svg" alt="Blogr Logo">
+    <div class="footer">
+    <img src="images/logo.svg" alt="Insure Logo">
     <nav id="footer-bottom-nav">
       <ul class="fa-ul">
-          <li><i class="fa fa-twitter"></i></li>
-          <li><i class="fa fa-firefox"></i></li>
-          <li><i class="fa fa-facebook"></i></li>
-          <li><i class="fa fa-instagram"></i></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-firefox"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
       </ul>
       </nav>
     <hr>
-    <h3>Product</h3>
+    <h3>Our Company</h3>
     <ul>
-      <li><a href="#">Our Company</a></li>
       <li><a href="#">HOW WE WORK</a></li>
-      <li><a href="#">Marketplace</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Integrations</a></li>
+      <li><a href="#">WHY INSURE?</a></li>
+      <li><a href="#">VIEW PLANS</a></li>
+      <li><a href="#">REVIEWS</a></li>
     </ul>
-    <h3>Company</h3>
+    <h3>Help Me</h3>
     <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Team</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Careers</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">TERMS OF USE</a></li>
+      <li><a href="#">PRIVACY POLICY</a></li>
+      <li><a href="#">LIVE CHAT</a></li>
     </ul>
-    <h3>Connect</h3>
+    <h3>Contact</h3>
     <ul>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Newsletter</a></li>
-      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">SALES</a></li>
+      <li><a href="#">SUPPORT</a></li>
+      <li><a href="#">LIVE CHAT</a></li>
     </ul>
+    <h3>Others</h3>
+      <ul>
+        <li><a href="#">CAREERS</a></li>
+        <li><a href="#">PRESS</a></li>
+        <li><a href="#">LICENSES</a></li>
+      </ul>
+    </div><!-- Closes class="footer"-->
   </footer>
 
   <div class="attribution">

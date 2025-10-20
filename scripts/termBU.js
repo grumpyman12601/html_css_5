@@ -1,5 +1,5 @@
 // Had chatGPT generate a terminal, hosted here(https://grumpyman12601.github.io/html_sandbox/terminal.html) and I referenced it to make my own.
-// I don't have AI modify my code, I give my code to AI and have it output instructions, instead of just coding for me.
+// I didn't have AI modify my code in this case, I gave my code to AI and have it output instructions, instead of just coding for me.
 const terminalBody = document.getElementById('terminal-body');
 
 terminalBody.addEventListener('keydown', (event) => {

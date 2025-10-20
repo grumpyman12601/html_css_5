@@ -4,9 +4,14 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" href="styles/styles.css?v=1.2">
+          <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css" />
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900&display=swap" rel="stylesheet">
+          <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/webawesome.loader.js"></script>
+          
           <title>grumpyman1's website</title>
           <!--TODO: CLEAR GIT COMMITS TO REMOVE PERSONAL/REVEALING INFO.-->
       </head>
@@ -81,14 +86,57 @@
             </section>
          </main>
 
-         <footer>
-            <small>
+        <footer id="footer"> <!-- taken from https://codepen.io/Abdy-mohameden/pen/qEdKVeO-->
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 - About -->
+                <div class="footer-column">
+                    <h3>grumpyman1</h3>
+                    <p>coding, networking, and modding</p>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2 - Contact Options -->
+                <div class="footer-column">
+                    <h3>Contact Me</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:drewhamer988@gmail.com">Email</a></li>
+                        <li><a href="#">Phone Number</a></li>
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#">About Me</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy;
+                    <script>document.write(new Date().getFullYear())</script> grumpyman1 | MIT license | <a
+                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+            <!--<small>
             <p> &copy; 2025 grumpyman1. Code licensed under the MIT License.</p>
-            </small>
+            </small> -->
         </footer>
 
      <script src="scripts/term.js"></script>
      <script src="scripts/main.js"></script>
+     <script src="scripts/footer.js"></script>
      </body>
      </html>
     

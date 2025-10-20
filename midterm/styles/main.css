@@ -31,6 +31,18 @@ h1, h2, h3, h4, h5, h6 {
     font-style: normal;
 }
 
+
+.footer h3 {
+    font-family: "Karla", serif;
+    font-weight: 1100;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: "Karla", serif;
+    font-weight: 1100;
+    font-size: 32px;
+}
 header {
     background: var(--white);
     border-radius: 0 0 0 0px;
@@ -53,10 +65,11 @@ header {
 #header-bottom-nav {
     background-color: white;
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
     z-index: 1;
     width: 100%;
+    display: none;
 }
 
 #header-bottom-nav li {
@@ -104,13 +117,34 @@ header {
 
 }
 
+#jumbotron2 {
+    padding: 85px 40px;
+    text-align: center;
+    background-color: var(--DarkViolet);
+}
+#jumbotron2 intro-mobile {
+    display: block;
+    background-color: var(--DarkViolet);
+
+}
+#jumbotron2 h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+    color: var(--light-gray)
+}
+
+
 #family-walking {
     background-image: url("../images/image-intro-mobile.jpg");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 400px;
-
+    width: 100%;
+    position: relative;
+    margin: 0 0px;
 }
 .intro-mobile {
     margin-bottom: 10px;
@@ -210,12 +244,13 @@ main p {
 #footer-bottom-nav ul {
     display: flex; /* Places block items side-by-side */
     justify-content: center; /* Centers flex content horizontally */
+    align-items: center; /* Vertically centers the icons */
     margin: 0.5em 0; /* Adds space above/below the top nav */
-    size: 24px;
+    gap: 1em; /* Adds space between the icons */
 }
 
 #footer-bottom-nav a {
-    margin-right: 2em; /* Adds space between hyperlinks */
+    margin-right: 0;
 }
 
 #footer-bottom-nav li:nth-child(3) a {
@@ -229,3 +264,16 @@ main p {
 #header-top-nav span {
     color: var(--blue);
 }
+
+.desktop-left-decor-pattern {
+    position: absolute;
+    left: -0.2rem;
+    top: 35rem;
+  }
+
+  .desktop-right-decor-pattern {
+    position: absolute;
+    top: 155rem;
+    right: 0.0625rem;
+    z-index: -1;
+  }
