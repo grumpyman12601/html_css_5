@@ -7,6 +7,7 @@
         <title>Home | Lynch Dallas, P.C. | Cedar Rapids, IA</title>
         <link type="text/css" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link type="text/css" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -21,6 +22,7 @@
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script>
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
         <script defer src="scripts/gsap.js"></script>
+        <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/webawesome.loader.js"></script>
     </head>
     <body translate="no">
         <header>
@@ -40,21 +42,23 @@
                     <li><a href="#"><span class="fa-li"><i class="fa-solid fa-phone"></i></span>319-365-9101</a></li>
                 </ul>
                 </nav>
-                <nav id="header-contact-mobile-nav">
-                    <a href="#" class="btn">Contact Us</a>
-                    <div id="mobile-nav"><i class="fa-solid fa-bars"></i></div>
-                </nav>
-                <nav id="header-bottom-nav" style="display: none">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Our Firm</a></li>
-                    <li><a href="#">Attorneys</a></li>
-                    <li><a href="#">Practice Areas</a></li>
-                    <li><a href="#">News &amp; Announcements</a></li>
-                </ul>
-                </nav>
             </div>
         </header>
+        <nav id="header-contact-mobile-nav" class="sticky">
+          <a href="#" class="btn">Contact Us</a>
+          <div id="mobile-nav"><i class="fa-solid fa-bars"></i></div>
+        </nav>
+        <nav id="header-bottom-nav" style="display: none">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Our Firm</a></li>
+            <li><a href="#">Attorneys</a></li>
+            <li><a href="#">Practice Areas</a></li>
+            <li><a href="#">News &amp; Announcements</a></li>
+        </ul>
+        </nav>
+
+
         <div id="jumbotron">
             <div id="jumbotron-image">
                 <img src="https://www.lynchdallas.com/application/files/6915/9122/3492/hero-building.jpg" alt="The front of the Dallas Lynch office building">
@@ -205,6 +209,8 @@
                <a href="#">Privacy Policy</a></p>
           </div>
         </footer>
+        <a href="#" id="to-top-link"><i class="fa-solid fa-chevron-up"></i></a>
+
     </body>
 
 </html>

@@ -180,6 +180,21 @@ main {
     transform: translateY(-2px);
 }
 
+.content-header {
+    text-align: center;
+}
+
+.header-content .content-header h1 {
+    font-size: 55px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color:#00ff00;
+    padding: 12px 12px 12px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
 .content-section {
     display: flex;
     flex-direction: column;
@@ -264,10 +279,12 @@ main {
 .prompt {
     color: #00ff00;
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 .terminal-line-input {
     display: flex;
+    align-items: center;
 }
 
 .terminal-input {
@@ -307,7 +324,7 @@ main {
     }
 }
 
-/* Force side-by-side for the first content section (Bookshelf) */
+/* Force side-by-side for the first content section ( bookshelf ) */
 main > .content-section:first-of-type {
     flex-direction: row;
     align-items: center;
@@ -669,4 +686,68 @@ footer::before {
     .footer-column h3::after {
         width: 40px;
     }
+}
+
+.images {
+    display: flex;
+    width: 100%;
+}
+
+.outerflex {
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 25%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: filter 0.3s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+	padding: 50px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s, backdrop-filter 0.3s;
+    transform: scale(0.9);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.overlay p {
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transform: translateY(20px); /* Start with text below the overlay */
+    transition: opacity 0.3s, transform 0.3s, ease-in-out 0.3s; /* Added ease-in-out */
+    cursor: pointer;
+}
+
+.image-container:hover img {
+    filter: blur(5px);
+}
+
+.image-container:hover .overlay {
+    opacity: 0.6;
+    transform: scale(1);
+    backdrop-filter: blur(0);
+}
+
+.image-container:hover .overlay p {
+    opacity: 1;
+    transform: translateY(0); /* Animate text to its original position */
 }
