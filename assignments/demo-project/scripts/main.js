@@ -7,6 +7,12 @@ $(document).ready(() => {
         headerBottomNav.toggle()
     });
 
+    // Close header-bottom-nav when a link is clicked
+    headerBottomNav.find('a').click(() => {
+        headerBottomNav.hide();
+    });
+
+
     // This code handles showing and hiding the go-to-top button.
     // Source Google Gemini
     // Get the link element

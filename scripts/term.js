@@ -199,6 +199,34 @@ const filesystem = {
 let currentDirectory = filesystem;
 let currentPath = '~';
 
+function typeWriter(text, outputElement, callback) {
+    let i = 0;
+    const speed = 20; // milliseconds per character
+
+    function type() {
+        if (i < text.length) {
+            const char = text.charAt(i);
+            if (char === '<') {
+                const tagEnd = text.indexOf('>', i);
+                if (tagEnd !== -1) {
+                    const tag = text.substring(i, tagEnd + 1);
+                    outputElement.innerHTML += tag;
+                    i = tagEnd + 1;
+                    type(); // Immediately process the next character
+                    return;
+                }
+            }
+            outputElement.innerHTML += char;
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+            i++;
+            setTimeout(type, speed);
+        } else if (callback) {
+            callback();
+        }
+    }
+    type();
+}
+
 function createNewInputLine() {
     const newLine = document.createElement('div');
     newLine.classList.add('terminal-line');
@@ -207,6 +235,7 @@ function createNewInputLine() {
     const newInput = newLine.querySelector('.terminal-input');
     newInput.focus();
     newInput.addEventListener('keydown', handleKeyDown);
+    terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
 function handleKeyDown(event) {
@@ -214,24 +243,34 @@ function handleKeyDown(event) {
         event.preventDefault();
         const currentInput = event.target;
         currentInput.contentEditable = false;
+        currentInput.removeEventListener('keydown', handleKeyDown);
+
         const commandText = currentInput.textContent.trim();
-        processCommand(commandText);
-        createNewInputLine();
+        processCommand(commandText, () => {
+            createNewInputLine();
+        });
     }
 }
 
-function processCommand(commandText) {
+function processCommand(commandText, onComplete) {
     const commandParts = commandText.split(' ');
     const command = commandParts[0].toLowerCase();
     const argument = commandParts.slice(1).join(' ');
 
-    const outputLine = document.createElement('div');
-    outputLine.classList.add('terminal-line');
-
     if (!commandText) {
-        terminalBody.appendChild(outputLine);
+        if(onComplete) onComplete();
         return;
     }
+    
+    if (command === 'clear') {
+        terminalBody.innerHTML = '';
+        if(onComplete) onComplete();
+        return;
+    }
+
+    const outputLine = document.createElement('div');
+    outputLine.classList.add('terminal-line');
+    terminalBody.appendChild(outputLine);
 
     function findNode(startDir, path) {
         const parts = path.split('/').filter(p => p);
@@ -247,9 +286,12 @@ function processCommand(commandText) {
         return current;
     }
 
+    let outputText = '';
+    let shouldHaveOutput = true;
+
     switch (command) {
         case 'go':
-            if (argument) {
+             if (argument) {
                 let node = findNode(currentDirectory, argument);
                 let pathPrefix = (currentPath === '~') ? '' : currentPath.substring(2) + '/';
 
@@ -261,74 +303,85 @@ function processCommand(commandText) {
                 if (node) {
                     if (node.type === 'file') {
                         window.location.href = pathPrefix + argument;
-                    } else { // It's a directory
-                        outputLine.textContent = `go: '${argument}' is a directory.`;
-                        terminalBody.appendChild(outputLine);
+                        return; 
+                    } else { 
+                        outputText = `go: '${argument}' is a directory.`;
                     }
                 } else {
-                    // Not a file or directory, treat as URL
                     let url = argument;
                     if (!url.startsWith('http://') && !url.startsWith('https://')) {
                         url = 'http://' + url;
                     }
                     window.location.href = url;
+                    return;
                 }
             } else {
-                outputLine.textContent = 'go: missing destination. Usage: go <file_path> or go <url>';
-                terminalBody.appendChild(outputLine);
+                outputText = 'go: missing destination. Usage: go <file_path> or go <url>';
             }
             break;
         case 'help':
-            outputLine.innerHTML = 'help  - Displays this list of available commands.<br>' +
-                                   'go    - Navigates to a page. Usage: "go index"<br>' +
-                                   'clear - Clears the terminal screen.<br>' +
-                                   'ls    - Lists files and directories.<br>' +
-                                   'cd    - Changes the current directory.';
-            terminalBody.appendChild(outputLine);
-            break;
-        case 'clear':
-            terminalBody.innerHTML = '';
+            outputText = 'help  - Displays this list of available commands.<br>' +
+                           'go    - Navigates to a page. Usage: "go index"<br>' +
+                           'clear - Clears the terminal screen.<br>' +
+                           'ls    - Lists files and directories.<br>' +
+                           'cd    - Changes the current directory.';
             break;
         case 'ls':
             if (currentDirectory.type === 'directory') {
                 const items = Object.keys(currentDirectory.children);
-                outputLine.textContent = items.join('  ');
+                if (items.length > 0) {
+                    outputText = items.join('  ');
+                } else {
+                    shouldHaveOutput = false;
+                }
             } else {
-                outputLine.textContent = 'ls: not a directory';
+                outputText = 'ls: not a directory';
             }
-            terminalBody.appendChild(outputLine);
             break;
+        case 'sl':
+            const train = document.createElement('div');
+            train.classList.add('train-container');
+            train.textContent = '      ====        ========\n  ____||__  __  |      |\n |  |  |  ||  | |      | \n/--O-O-O-O-O-O-O-O-O-O-\n';
+            document.body.appendChild(train);
+            setTimeout(() => {
+                document.body.removeChild(train);
+                if(onComplete) onComplete();
+            }, 5000); // 5 seconds for the animation
+            return; // onComplete will be called in the timeout
         case 'cd':
             if (!argument || argument === '~') {
                 currentDirectory = filesystem;
                 currentPath = '~';
+                shouldHaveOutput = false;
             } else if (argument === '..') {
-                 outputLine.textContent = 'cd: ".." not fully supported in this version.';
-                 terminalBody.appendChild(outputLine);
-            } else if (currentDirectory.children[argument] && currentDirectory.children[argument].type === 'directory') {
+                 outputText = 'cd: ".." not fully supported in this version.';
+            } else if (currentDirectory.children && currentDirectory.children[argument] && currentDirectory.children[argument].type === 'directory') {
                 currentDirectory = currentDirectory.children[argument];
                 currentPath = currentPath === '~' ? `~/${argument}` : `${currentPath}/${argument}`;
+                shouldHaveOutput = false;
             } else {
-                outputLine.textContent = `cd: no such file or directory: ${argument}`;
-                terminalBody.appendChild(outputLine);
+                outputText = `cd: no such file or directory: ${argument}`;
             }
             break;
         default:
-            outputLine.textContent = `command not found: ${commandText}`;
-            terminalBody.appendChild(outputLine);
+            outputText = `command not found: ${commandText}`;
             break;
+    }
+
+    if (outputText) {
+        typeWriter(outputText, outputLine, onComplete);
+    } else {
+        if (!shouldHaveOutput) {
+            terminalBody.removeChild(outputLine);
+        }
+        if(onComplete) onComplete();
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const firstInput = document.querySelector('.terminal-input');
-    if (firstInput) {
-        firstInput.addEventListener('keydown', handleKeyDown);
+    const initialLine = document.getElementById('initial-line');
+    if (initialLine) {
+        initialLine.remove();
     }
+    createNewInputLine();
 });
-
-createNewInputLine();
-const initialLine = document.getElementById('initial-line');
-if(initialLine){
-    initialLine.remove();
-}

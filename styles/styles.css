@@ -1,4 +1,27 @@
+/* Your existing CSS content here... */
 
+/* SL (Steam Locomotive) command styles */
+.train-container {
+    position: fixed;
+    top: 50%;
+    left: -400px; /* Start off-screen left */
+    transform: translateY(-50%) scaleX(-1); /* Flip the train horizontally */
+    z-index: 1001;
+    white-space: pre;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    font-size: 3rem; /* Larger train */
+    animation: moveTrain 5s linear forwards; /* Faster animation */
+}
+
+@keyframes moveTrain {
+    from {
+        left: -400px;
+    }
+    to {
+        left: 100%;
+    }
+}
 :root {
   /* Fluid Typography using clamp(MIN, PREFERRED, MAX) Generated from Gemini, it makes the text more readable on different displays, on top of that globabl variables are way easier to edit than manually doing it per line.*/
   --font-size-sm: clamp(0.8rem, 0.17vw + 0.75rem, 0.95rem);
@@ -31,6 +54,17 @@
     --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.site-banner {
+    background-color: #ba9810; /* Green background */
+    color: white; /* White text color */
+    padding: 0px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+  }
+
+
 /* Basic Body Styles */
 body {
     min-height: 100vh;
@@ -55,8 +89,8 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 5%; /* Use percentage for horizontal padding */
+    justify-content: space-between; /* Adjusted for flexbox */
+    padding: 10px 5%;
     position: fixed;
     top: 0;
     left: 0;
@@ -69,10 +103,6 @@ header {
     font-family: 'Chakra Petch', sans-serif;
 }
 
-header.menu-open {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
 header.scrolled {
     background-color: rgba(0, 0, 0, 0.9);
 }
@@ -83,11 +113,13 @@ header.scrolled {
     gap: 15px;
 }
 
-h1 {
+header h1 {
     color: rgb(0, 255, 0);
-    font-size: 1.2em; /* Relative to parent header */
+    letter-spacing: 3px;
+    height: auto;
+    font-size: 2em; /* Relative to parent header */
     margin: 0;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Jersey 15', sans-serif;
 }
 
 /* Navigation Bar Styles */
@@ -99,14 +131,14 @@ h1 {
 }
 
 .navbar li {
-    margin-left: 15px;
+    margin-left: 20px; /* Spacing between nav items */
 }
 
 .navbar a {
     color: rgb(0, 192, 0);
     font-size: var(--font-size-sm);
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 12px 16px;
     border-radius: 0.5rem;
     text-decoration: none;
     transition: all .40s ease;
@@ -180,6 +212,11 @@ main {
     transform: translateY(-2px);
 }
 
+.center-button-container {
+    text-align: center;
+    margin-bottom: var(--space-md);
+}
+
 .content-header {
     text-align: center;
 }
@@ -189,7 +226,7 @@ main {
     background-color: rgba(0, 0, 0, 0.3);
     color:#00ff00;
     padding: 12px 12px 12px 12px;
-    border-radius: 5px;
+    border-radius: 0px;
     font-weight: bold;
     display: inline-block;
     font-family: 'Chakra Petch', sans-serif;
@@ -349,54 +386,33 @@ section.content-section:nth-of-type(3) .content-column-visual {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .navbar {
+        display: none; /* Hide nav by default on mobile */
         position: absolute;
         top: 71px;
         left: 0;
         width: 100%;
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.7);
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.4s ease, background-color 0.3s ease;
-    }
-
-    .navbar a {
-        color: white;
     }
 
     .navbar.open {
-        max-height: 500px; /* A large enough value to show all menu items */
-        background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .navbar.open ul {
-        opacity: 1;
-        transition: opacity 0.3s ease-in 0.1s; /* Fade in with a slight delay */
-    }
-
-    header.scrolled .navbar.open {
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    header.scrolled .navbar.open a {
-        color: rgb(0, 192, 0);
+        display: block; /* Show nav when open */
     }
 
     .navbar ul {
         flex-direction: column;
         width: 100%;
-        opacity: 0;
-        transition: opacity 0.2s ease-out; /* Fade out slightly faster */
+        text-align: center;
     }
 
     .navbar li {
-        text-align: center;
         margin: 10px 0;
     }
 
     .mobile-menu-button {
-        display: block;
+        display: block; /* Show hamburger button on mobile */
     }
 
     .content-column-text h2 {

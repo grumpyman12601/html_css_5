@@ -1,0 +1,238 @@
+:root {
+    --bg-color: #0a2e26;
+    --accent-color: #4fe89e;
+    --text-color: #E6E6E6;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Decorative Shapes --- */
+.top-left-shapes, .top-right-shapes, .bottom-left-shapes, .bottom-right-shapes {
+    position: absolute;
+}
+
+.top-left-shapes { top: 40px; left: 40px; }
+.top-right-shapes { top: 40px; right: 40px; }
+.bottom-left-shapes { bottom: auto; left: 40px; top: 700px; }
+.bottom-right-shapes { bottom: auto; right: 40px; top: 700px; }
+
+.dotted-circle {
+    width: 80px;
+    height: 80px;
+    background-image: radial-gradient(var(--text-color) 20%, transparent 20%);
+    background-size: 10px 10px;
+    opacity: 0.2;
+}
+
+.filled-circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 60px;
+}
+
+.outline-circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    right: 30px;
+}
+
+.dotted-circle-small {
+     width: 70px;
+    height: 70px;
+    background-image: radial-gradient(var(--text-color) 20%, transparent 20%);
+    background-size: 8px 8px;
+    opacity: 0.2;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+}
+
+.dotted-square {
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(var(--text-color) 20%, transparent 20%);
+    background-size: 8px 8px;
+    opacity: 0.2;
+}
+
+.slanted-square {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--accent-color);
+    transform: rotate(45deg);
+    position: absolute;
+    right: 80px;
+    bottom: 10px;
+}
+
+.hatched-square {
+    width: 70px;
+    height: 70px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--accent-color),
+        var(--accent-color) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+    opacity: 0.5;
+}
+
+
+/* --- Main Content --- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.logo span {
+    font-weight: 300;
+    letter-spacing: 4px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+nav {
+    margin-bottom: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0 15px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+}
+
+nav a.active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.welcome-text h1 {
+    font-size: 4em;
+    margin: 0;
+    letter-spacing: 8px;
+    font-weight: 900;
+    color: #4fe89e;
+}
+
+.welcome-text p {
+    font-size: 1.2em;
+    margin: 10px 0 25px;
+    letter-spacing: 6px;
+    font-weight: 300;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 50px;
+}
+
+/* --- Project Section --- */
+.content-section {
+    display: flex;
+    background-color: rgba(10, 46, 38, 0.7);
+    border: 1px solid var(--accent-color);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px;
+    color: var(--text-color);
+    align-items: center;
+}
+
+.content-column-text {
+    flex: 2;
+    text-align: left;
+    padding-right: 30px;
+}
+
+.content-column-text h2 {
+    margin-top: 0;
+}
+
+.content-column-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content-column-visual {
+    flex: 1;
+}
+
+.content-column-visual img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-size: 0.8em;
+    margin-top: 50px; /* Add margin to push footer down */
+}
+
+.social-icons {
+    margin: 5px 0;
+}
+
+.social-icons a {
+    color: var(--bg-color);
+    margin: 0 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.designer {
+    font-size: 0.9em;
+}
+
+.designer a {
+    color: var(--bg-color);
+    font-weight: bold;
+    text-decoration: none;
+}

@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+/**
+* Smooth scrolling on the whole document
+*/
+html {
+scroll-behavior: smooth;
+}
+
+/**
+* Animations can cause issues for users who suffer from motion sickness and other conditions. This prevents animated scrolling when users have specified that they’d prefer reduced motion.
+*/
+@media screen and (prefers-reduced-motion: reduce) {
+html {
+  scroll-behavior: auto;
+}
+}
+
 :root {
   --navy: rgb(0, 0, 128);
   --blue: rgb(0, 191, 255);
@@ -72,6 +88,7 @@ header nav a {
 position: -webkit-sticky;
 position: sticky;
 top: 0;
+z-index: 2;
 }
 
 /* Class selectors start with a period */
@@ -99,12 +116,12 @@ top: 0;
 position: absolute;
 left: 0;
 width: 100%;
-background-color: white;
 }
 
 
 #header-bottom-nav li {
   border-bottom: 1px solid lightgrey;
+  background-color: white;
 }
 
 #header-bottom-nav a {
@@ -115,6 +132,10 @@ background-color: white;
 
 #header-bottom-nav .active, #header-bottom-nav a:hover {
   color: var(--blue);
+}
+
+#jumbotron {
+scroll-margin-top: 3em;
 }
 
 #jumbotron-text {
@@ -139,6 +160,7 @@ background-color: white;
 #about-us {
   padding: 30px;
   margin-top: 50px;
+  scroll-margin-top: 3em;
 }
 
 /* Source: https://stackoverflow.com/a/6382036/6629315 */
@@ -179,6 +201,11 @@ background-color: white;
   margin: 15px 0;
   line-height: 1.5em;
 }
+
+#about-cards {
+scroll-margin-top: 4em;
+}
+
 #about-cards article {
   margin: 25px 0;
 }
@@ -204,7 +231,9 @@ background-color: white;
   color: #555;
 }
 
-
+#attorneys {
+scroll-margin-top: 3em;
+}
 
 .parallax {
   position: relative;

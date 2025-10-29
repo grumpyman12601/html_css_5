@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
 
@@ -11,11 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Mobile menu toggle
-    const menuButton = document.getElementById('mobile-menu-button'); // Corrected ID
+    const menuButton = document.querySelector('.mobile-menu-button'); // Corrected selector
     const navbar = document.querySelector('.navbar');
 
     if (menuButton && navbar) {
-        menuButton.addEventListener('click', () => {
+        menuButton.addEventListener('click', (e) => {
+            e.preventDefault();
             navbar.classList.toggle('open');
             header.classList.toggle('menu-open');
         });
