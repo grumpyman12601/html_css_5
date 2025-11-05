@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+#header-logo path {
+fill: black;
+}
+@media (prefers-color-scheme: dark) {
+#header-logo path { fill: white; }
+}
+
 /**
 * Smooth scrolling on the whole document
 */
@@ -30,6 +37,18 @@ body {
   font-family: "PT Sans", serif;
   font-weight: 400;
   font-style: normal;
+  --bg-color: white; 
+  --text-color: black;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+body {
+  --bg-color: black;
+  --text-color: white;
+}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,6 +72,12 @@ header nav a {
   text-decoration:none;
   color: var(--navy);
   font-weight: 700;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+header nav a {
+  color: white;
+}
 }
 
 #header-top-nav ul {
@@ -188,7 +213,7 @@ scroll-margin-top: 3em;
   line-height: 1.25em;
 }
 
-#about-us img {
+#about-us img.divider {
   width: 150px;
   height: 5px;
   /* If text-align: center doesn't work, set the display property to block, and use margin: 0 auto instead */
@@ -229,6 +254,12 @@ scroll-margin-top: 4em;
   font-size: 1.1em;
   line-height: 1.25em;
   color: #555;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+#about-cards blockquote {
+  color: #ddd;
+}
 }
 
 #attorneys {
@@ -291,6 +322,11 @@ white;
   padding: 40px 20px;
 }
 
+@media only screen and (min-width: 680px) {
+  #footer-contact {
+    display: flex;
+  }
+}
 #footer-contact .col {
   margin: 20px;
 }
@@ -316,6 +352,12 @@ white;
 #footer-contact a {
   color: #222;
   text-decoration: none;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  #footer-contact a {
+    color: #eee;
+  }
 }
 
 #footer-contact table {
@@ -355,6 +397,13 @@ white;
   background-color: var(--navy);
   transform: scale(1.2);
 } 
+
+@media screen and (prefers-color-scheme: dark) {
+#footer-contact .social-icons a:hover {
+  background-color: #eee;
+  color: black;
+}
+}
 
 
 
