@@ -180,7 +180,7 @@ header h1 {
     font-size: var(--font-size-xl);
     margin-bottom: 15px;
     color: var(--primary);
-    font-family: var(--font-main);
+    font: 'Chakra Petch'
 }
 
 .hero-content p {
@@ -188,7 +188,7 @@ header h1 {
     line-height: 1.6;
     margin-bottom: 25px;
     color: #ccc;
-    font-family: var(--font-secondary);
+    font-family: 'IBM Plex Mono', monospace, sans-serif;
     letter-spacing: -1px;
 }
 
@@ -206,7 +206,7 @@ header h1 {
     background-color: #1a1a1a;
     border-radius: 8px;
     overflow: hidden;
-    font-family: var(--font-secondary);
+    font-family: 'Source Code Pro', monospace;
     color: var(--primary);
     margin: var(--space-md);
     box-shadow: var(--shadow-lg);
@@ -257,7 +257,7 @@ header h1 {
     color: var(--primary);
     caret-color: var(--primary);
     flex-grow: 1;
-    font-family: var(--font-secondary);
+    font-family: 'Source Code Pro', monospace;
     font-size: 1em;
 }
 
@@ -338,7 +338,7 @@ header h1 {
     border-radius: 0px;
     font-weight: bold;
     display: inline-block;
-    font-family: var(--font-main);
+    font-family: 'Chakra Petch';
 }
 
 .content-section {
@@ -361,7 +361,7 @@ header h1 {
 
 .content-column-text h2 {
     color: var(--primary);
-    font-family: var(--font-main);
+    font: var(--font-main);
     font-size: var(--font-size-lg);
     margin-bottom: 10px;
     white-space: nowrap;
@@ -371,7 +371,7 @@ header h1 {
     color: var(--gray);
     line-height: 1.6;
     margin-bottom: 20px;
-    font-family: var(--font-secondary);
+    font-family: 'IBM Plex Mono', monospace, sans-serif;
     letter-spacing: -1px;
 }
 
