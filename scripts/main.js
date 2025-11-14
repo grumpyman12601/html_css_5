@@ -2,6 +2,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const backToTopButton = document.getElementById('backToTop');
+    const themeSwitch = document.getElementById('theme-switch');
+
+    // Function to apply theme
+    const applyTheme = (isLight) => {
+        document.body.classList.toggle('light-mode', isLight);
+        if (themeSwitch) {
+            themeSwitch.checked = isLight;
+        }
+    };
+
+    // Check for saved theme in local storage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme === 'light');
+    } else {
+        // Check for OS preference
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        applyTheme(prefersLight);
+    }
+
+    // Handle theme switch click
+    if (themeSwitch) {
+        themeSwitch.addEventListener('change', (e) => {
+            const isLight = e.target.checked;
+            applyTheme(isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    }
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {

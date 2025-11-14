@@ -16,12 +16,12 @@ $(document).ready(() => {
     // This code handles showing and hiding the go-to-top button.
     // Source Google Gemini
     // Get the link element
-    var toTopLink = document.getElementById("to-top-link");
+    let toTopLink = document.getElementById("to-top-link");
 
     // 1. Show/Hide button on scroll
     window.onscroll = function() {
         // A scroll threshold of 100px
-        var scrollThreshold = 100;
+        let scrollThreshold = 100;
 
         // Check both documentElement and body for cross-browser compatibility
         if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
@@ -44,4 +44,24 @@ $(document).ready(() => {
         });
     }
 
+
+    // This code handles the light and dark mode favicon
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const favicon = document.getElementById('favicon');
+
+    function updateFavicon(e) {
+        if (e.matches) {
+            // console.log("Dark mode");
+            favicon.href = "images/gavel-solid-light.svg";
+        } else {
+            // console.log("Light mode");
+            favicon.href = "images/gavel-solid.svg";
+        }
+    }
+
+    // Initial check
+    updateFavicon(darkModeMediaQuery);
+
+    // Listen for changes in color scheme preference
+    darkModeMediaQuery.addEventListener('change', updateFavicon);
 });

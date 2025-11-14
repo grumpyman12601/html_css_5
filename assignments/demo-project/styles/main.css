@@ -163,6 +163,23 @@ width: 100%;
 scroll-margin-top: 3em;
 }
 
+@media only screen and (min-width: 956px) {
+#jumbotron {
+  display: flex;
+  flex-wrap: wrap;
+}
+#jumbotron-image, #jumbotron-text {
+  width: 50%;
+}
+#jumbotron-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* default value is stretch */
+  justify-content: center; /* When working with flex-direction: column, justify-content refers to the verical alignment */
+  gap: 10px;
+}
+}
+
 #jumbotron-text {
   background-image: url("https://www.lynchdallas.com/application/themes/lynchdallas/img/bkg-pattern.jpg");
   padding: 1.5em;
@@ -173,6 +190,9 @@ scroll-margin-top: 3em;
   font-size: 2.5em;
   font-weight: normal; /* Don't make the text bold */
   line-height: 1.25em;
+  /* border-style: solid none;
+  border-width: 5px;
+  border-color: var(--blue); */
 }
 
 #jumbotron-text p {
@@ -231,6 +251,23 @@ scroll-margin-top: 3em;
 scroll-margin-top: 4em;
 }
 
+@media only screen and (min-width: 680px) {
+#about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around ; /* flex-start, flex-end, space-between */
+}
+.card {
+  width: 40%;
+}
+}
+
+@media only screen and (min-width: 960px) {
+.card {
+  width: 28%;
+}
+}
+
 #about-cards article {
   margin: 25px 0;
 }
@@ -268,22 +305,50 @@ scroll-margin-top: 3em;
 
 .parallax {
   position: relative;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (min-width: 400px) {
+  .parallax {
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .parallax {
+    height: 90vh;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .parallax {
+    height: 80vh;
+  }
+}
+
 .parallax-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 40%;
-  z-index: -1;
+  z-index: 0;
   background-image: url('https://www.lynchdallas.com/application/files/7515/9231/1199/feature-full.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 900px) {
+  .parallax-bg {
+    width: 90%;
+    height: 60%;
+    position: static;
+    margin: 0 auto;
+  }
 }
 
 .parallax-text {
@@ -292,6 +357,22 @@ scroll-margin-top: 3em;
   padding: 1.5em;
   width: 80%;
   border-top: 5px solid var(--blue);
+  margin-top: 10em;
+}
+
+@media screen and (min-width: 900px) {
+  .parallax-text {
+    width: 40%;
+    position: absolute;
+    right: 100px;
+    top: -30px;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .parallax-text {
+    width: 33%;
+  }
 }
 
 .parallax-text h3 {
@@ -325,10 +406,24 @@ white;
 @media only screen and (min-width: 680px) {
   #footer-contact {
     display: flex;
+    flex-wrap: wrap;
   }
 }
+
 #footer-contact .col {
   margin: 20px;
+}
+
+@media only screen and (min-width: 680px) {
+  #footer-contact .col {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  #footer-contact .col {
+    width: 22%;
+  }
 }
 
 #footer-contact h3 {
@@ -433,6 +528,8 @@ white;
   padding: 25px;
   position:relative;
   z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 #footer-cta img {
@@ -514,6 +611,11 @@ white;
 
 #to-top-link i {
 color: white;
+}
+
+/* This style will be applied by JavaScript */
+#to-top-link.show {
+display: flex; /* Use flex to center the icon */
 }
 
 /* This style will be applied by JavaScript */
