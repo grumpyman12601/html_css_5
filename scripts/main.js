@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const darkLogo = 'images/site_logo/FullLogo_Transparent_notext.png';
     const lightLogo = 'images/site_logo/lm_logo.png';
-
     // -------------------------------
     // APPLY THEME + UPDATE SWITCH + LOGO
     // -------------------------------
