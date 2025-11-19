@@ -27,6 +27,8 @@
     --lighter: #FFFFFF;
     --gray: #ADB5BD;
     --dark-gray: #495057;
+    /* Light Mode Styles */
+    --lm-gray: #4e4e4e;
 
     /* Fonts */
     --font-main: 'Chakra Petch', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -454,7 +456,7 @@ body.light-mode .overlay p {
 
 .header-content .content-header h1 {
     font-size: 55px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.05);
     color: var(--primary);
     padding: 12px;
     border-radius: 0px;
@@ -633,6 +635,18 @@ footer::before {
     opacity: 1;
 }
 
+body.light-mode .footer-links a {
+    color: var(--lm-gray);
+}
+
+body.light-mode .footer-links a:hover {
+    color: var(--darker2);
+}
+
+body.light-mode .footer-links a:hover::before {
+    color: var(--darker);
+}
+
 .social-links {
     display: flex;
     gap: 0.8rem;
@@ -725,6 +739,14 @@ footer::before {
     transform: translateY(-2px);
     color: var(--primary);
     background-color: #000;
+    text-decoration: underline;
+}
+
+
+body.light-mode .cta-button:hover {
+    transform: translateY(-2px);
+    color: var(--darker);
+    background-color: var(--lighter);
     text-decoration: underline;
 }
 
