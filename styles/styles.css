@@ -22,6 +22,7 @@
     --secondary: #009419ab;
     --dark: #00813e;
     --darker: #000000;
+    --darker2: #404040;
     --light: #F8F9FA;
     --lighter: #FFFFFF;
     --gray: #ADB5BD;
@@ -100,6 +101,32 @@ main {
 ==================================
 */
 
+#theme-switch {
+    --width: 40px;
+    --height: 20px;
+    --thumb-size: 16px;
+  }
+  
+  /* Track */
+  #theme-switch::part(control) {
+    background-color: gray;
+    border-radius: 12px;
+    transition: background-color 0.5s ease;
+  }
+  
+  /* Thumb */
+  #theme-switch::part(thumb) {
+    background-color: #00ff1e;
+    border-radius: 50%;
+    transition: background-color 0.5s ease; /* color transition */
+  }
+  
+  /* Body transition for smooth background/text switch */
+  body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+
 header {
     display: flex;
     align-items: center;
@@ -131,6 +158,13 @@ body.light-mode header.scrolled {
 
 header h1 {
     color: var(--primary);
+    letter-spacing: 3px;
+    font-size: 2em;
+    margin: 0;
+    font-family: 'Jersey 15', sans-serif;
+}
+body.light-mode header h1 {
+    color: var(--darker2);
     letter-spacing: 3px;
     font-size: 2em;
     margin: 0;
