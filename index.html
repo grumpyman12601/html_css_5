@@ -13,7 +13,6 @@
     
     <!-- Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Web Awesome -->
     <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css">
@@ -31,33 +30,12 @@
       }
     </style>
 </head>
+<div class="site-banner" style="display: none;">
+    <p>This is a site banner!</p>
+  </div>
+  
 <body>
-    <div class="site-banner" style="display: none;">
-        <p>This is a site banner!</p>
-      </div>
-
-      <header>
-        <div class="logo-container">
-            <img src="images/site_logo/FullLogo_Transparent_notext.png" alt="logo" width="70" id="logo-image">
-            <h1>grumpyman1's website</h1>
-        </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#hero">home</a></li>
-                <li><a href="#about">about me</a></li>
-                <li><a href="#experience">experience</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#contact">contact</a></li>
-            </ul>
-        </nav>
-        <div class="header-controls">
-            <wa-switch id="theme-switch">
-                <wa-icon slot="off" name="moon"></wa-icon>
-                <wa-icon slot="on" name="sun"></wa-icon>
-              </wa-switch>
-            <a href="#" class="mobile-menu-button">&#9776;</a>
-        </div>
-    </header>
+      <div id="header-placeholder"></div>
 
     <main>
         <section id="hero">
@@ -72,10 +50,10 @@
         </div>
         <div class="terminal-box">
             <div class="terminal-header">
-                <span class="title">Terminal (type "help" for commands)</span>
+                <span class="title">Terminal (type \"help\" for commands)</span>
                 <div class="terminal-header-icons">
                     <a class="github-link" href="https://www.github.com/grumpyman12601" target="_blank" rel="noopener noreferrer">
-                        <img class="github-image" src="images/github-mark-white.png" alt="Link to github">
+                        <img class="github-image" src="../images/github-mark-white.png" alt="Link to github">
                     </a>
                     <wa-tooltip for="info-button">This terminal is incomplete and paths aren't relative to the user.</wa-tooltip>
                     <span id="info-button" class="info-button">ⓘ</span>
@@ -89,14 +67,14 @@
         <div class="outerflex" id="experience">
             <div class="images">
                 <div class="image-container">
-                    <img src="images/webcode.png">
+                    <img src="../images/webcode.png">
                     <div class="overlay">
                         <h1>Web Coding</h1><br>
                         <p>I've been coding in HTML since high school. This website is the location of all the HTML, CSS, and JavaScript I've written over the course of college. </p>
                     </div>
                 </div>
                 <div class="image-container">
-                    <img src="images/pycode.png">
+                    <img src="../images/pycode.png">
                     <div class="overlay">
                         <h1>Python</h1><br>
                            <p> I have minimal experience in Python, while it's easy to read, freehand coding is a challenge that I haven't mastered yet.
@@ -104,7 +82,7 @@
                     </div>
                 </div>
                 <div class="image-container">
-                    <img src="images/cisco.png">
+                    <img src="../images/cisco.png">
                     <div class="overlay">
                         <h1>Networking</h1><br>
                           <p>I'm currently majoring in Network Access System Adminstration, getting certification in Cisco and others.
@@ -122,11 +100,11 @@
             </div>
         </div>
 
-        <element class="header-content" id="projects">
+        <div class="header-content" id="projects">
            <div class="content-header">
                <h1>My public projects</h1>
            </div>
-        </element>
+        </div>
 
        <section class="content-section">
            <div class="content-column-text">
@@ -134,7 +112,7 @@
                <p>An extension that hides your taskbar, done by creating a small tab and putting it in the corner of the screen. It's only useful on a device where the taskbar is stuck on the desktop, an example is ChromeOS.</p>
            </div>
            <div class="content-column-visual">
-               <img src="images/bookshelf.png" alt="The bookshelf extension icon.">
+               <img src="../images/bookshelf.png" alt="The bookshelf extension icon.">
            </div>
        </section>
        <section class="content-section">
@@ -143,7 +121,7 @@
                <p>A website that displays a lot of methods to unenroll Chromebooks, disable managed extensions, hack stuff, play games, and some other miscellaneous things. EOL as I kept it up-to-date throughout high school.</p>
            </div>
            <div class="content-column-visual">
-               <img src="images/methodex.png" alt="The bookshelf extension icon.">
+               <img src="../images/methodex.png" alt="The bookshelf extension icon.">
            </div>
        </section>
        <section class="content-section">
@@ -152,57 +130,12 @@
                <p>Developed and currently maintain a fitness trainer's website.</p>
            </div>
            <div class="content-column-visual">
-               <img src="images/hammertime_fitness.jpg" alt="Hammertime Fitness Logo">
+               <img src="../images/hammertime_fitness.jpg" alt="Hammertime Fitness Logo">
            </div>
        </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Column 1 - About -->
-                <div class="footer-column">
-                    <h3>grumpyman1</h3>
-                    <p>coding, networking, and modding</p>
-     
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-     
-                <!-- Column 2 - Contact Options -->
-                <div class="footer-column">
-                    <h3>Contact Me</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:test@test.com">email</a></li>
-                        <li><a href="#">phone (not actually)</a></li>
-                        <li><a href="#">github</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">homepage</a></li>
-                        <li><a href="about.html">about me</a></li>
-                        <li><a href="experience.html">experience</a></li>
-                        <li><a href="projects.html">projects</a></li>
-                        <li><a href="contact.html">contact info</a></li>
-                    </ul>
-                </div>
-            </div>
-     
-            <div class="copyright">
-                <p>&copy;
-                    <script>document.write(new Date().getFullYear())</script> grumpyman1 | MIT license | <a
-                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" rel="noopener noreferrer">Legal Notice</a>
-                </p>
-            </div>
-        </div>
-     </footer>
+    <div id="footer-placeholder"></div>
      
      <div id="contact-popup" class="popup-container">
          <div class="popup-content">
@@ -232,6 +165,14 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="scripts/term.js"></script>
-<script src="scripts/main.js"></script>
+<script>
+    $(function(){
+      $("#header-placeholder").load("header.html", function() {
+        // This code runs *after* the header is loaded, then loads main.js
+        $.getScript("scripts/main.js");
+      });
+      $("#footer-placeholder").load("footer.html");
+    });
+</script>
 </body>
 </html>

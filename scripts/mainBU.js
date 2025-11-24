@@ -1,4 +1,4 @@
-// JAVASCRIPT WRITTEN USING GEMINI
+// JAVASCRIPT WRITTEN USING GEMINI + WA-SWITCH LIGHT/DARK
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const backToTopButton = document.getElementById('backToTop');
@@ -8,28 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkLogo = 'images/site_logo/FullLogo_Transparent_notext.png';
     const lightLogo = 'images/site_logo/lm_logo.png';
 
-    // Function to apply theme
+    // -------------------------------
+    // APPLY THEME + UPDATE SWITCH + LOGO
+    // -------------------------------
     const applyTheme = (isLight) => {
         document.body.classList.toggle('light-mode', isLight);
+
         if (themeSwitch) {
             themeSwitch.checked = isLight;
         }
+
         if (logoImage) {
-            logoImage.src = isLight ? lightLogo : darkLogo;
+            logoImage.style.transition = 'opacity 0.3s ease';
+            logoImage.style.opacity = 0;
+            setTimeout(() => {
+                logoImage.src = isLight ? lightLogo : darkLogo;
+                logoImage.style.opacity = 1;
+            }, 150);
         }
     };
 
-    // Check for saved theme in local storage
+    // -------------------------------
+    // INITIALIZE THEME
+    // -------------------------------
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme === 'light');
-    } else {
-        // Check for OS preference
-        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        applyTheme(prefersLight);
-    }
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(savedTheme ? savedTheme === 'light' : prefersLight);
 
-    // Handle theme switch click
+    // -------------------------------
+    // HANDLE SWITCH TOGGLE
+    // -------------------------------
     if (themeSwitch) {
         themeSwitch.addEventListener('change', (e) => {
             const isLight = e.target.checked;
@@ -38,21 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // -------------------------------
+    // SCROLL BEHAVIOR
+    // -------------------------------
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        if (backToTopButton) {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        }
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        if (backToTopButton) backToTopButton.classList.toggle('visible', window.scrollY > 300);
     });
 
+    // -------------------------------
+    // MOBILE MENU
+    // -------------------------------
     const menuButton = document.querySelector('.mobile-menu-button');
     const navbar = document.querySelector('.navbar');
     if (menuButton && navbar) {
@@ -63,25 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // -------------------------------
+    // IMAGE OBSERVER
+    // -------------------------------
     const imageContainers = document.querySelectorAll('.image-container');
     if (imageContainers.length > 0) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => entry.target.classList.toggle('visible', entry.isIntersecting));
         }, { root: null, rootMargin: '0px', threshold: 0.75 });
-        imageContainers.forEach(container => {
-            imageObserver.observe(container);
-        });
+        imageContainers.forEach(container => imageObserver.observe(container));
     }
 
-    // Handle mobile menu closure on link click
+    // -------------------------------
+    // CLOSE MOBILE MENU ON LINK CLICK
+    // -------------------------------
     document.querySelectorAll('.navbar a').forEach(anchor => {
-        anchor.addEventListener('click', function() {
+        anchor.addEventListener('click', () => {
             if (navbar.classList.contains('open')) {
                 navbar.classList.remove('open');
                 header.classList.remove('menu-open');
@@ -89,12 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // -------------------------------
+    // BACK TO TOP BUTTON
+    // -------------------------------
     if (backToTopButton) {
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
+    // -------------------------------
+    // CONTACT POPUP
+    // -------------------------------
     const contactButton = document.querySelector('.cta-button');
     const contactPopup = document.getElementById('contact-popup');
     const closeButton = document.querySelector('.close-button');
@@ -103,61 +110,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const showPopup = (e) => {
             e.preventDefault();
             e.stopPropagation();
+            const rect = contactButton.getBoundingClientRect();
 
-            const buttonRect = contactButton.getBoundingClientRect();
-
-            // Temporarily display to calculate size
             contactPopup.style.display = 'block';
             contactPopup.style.visibility = 'hidden';
             const popupRect = contactPopup.getBoundingClientRect();
             contactPopup.style.visibility = 'visible';
 
-            let top = buttonRect.top - popupRect.height - 10; // 10px spacing above
-            let left = buttonRect.left + (buttonRect.width / 2) - (popupRect.width / 2);
-
-            if (top < 0) {
-                top = buttonRect.bottom + 10; // Place below if not enough space above
-            }
-            if (left < 0) {
-                left = 10;
-            }
-            if (left + popupRect.width > window.innerWidth) {
-                left = window.innerWidth - popupRect.width - 10;
-            }
+            let top = rect.top - popupRect.height - 10;
+            let left = rect.left + rect.width / 2 - popupRect.width / 2;
+            if (top < 0) top = rect.bottom + 10;
+            if (left < 0) left = 10;
+            if (left + popupRect.width > window.innerWidth) left = window.innerWidth - popupRect.width - 10;
 
             contactPopup.style.top = `${top + window.scrollY}px`;
             contactPopup.style.left = `${left + window.scrollX}px`;
         };
 
-        const hidePopup = () => {
-            contactPopup.style.display = 'none';
-        };
+        const hidePopup = () => { contactPopup.style.display = 'none'; };
 
         contactButton.addEventListener('click', showPopup);
-
-        closeButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            hidePopup();
-        });
+        closeButton.addEventListener('click', (e) => { e.stopPropagation(); hidePopup(); });
 
         const contactForm = contactPopup.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                hidePopup();
-            });
-        }
+        if (contactForm) contactForm.addEventListener('submit', (e) => { e.preventDefault(); hidePopup(); });
 
         window.addEventListener('click', (e) => {
-            if (contactPopup.style.display === 'block' && !contactButton.contains(e.target) && !contactPopup.contains(e.target)) {
-                hidePopup();
-            }
+            if (contactPopup.style.display === 'block' && !contactButton.contains(e.target) && !contactPopup.contains(e.target)) hidePopup();
         });
 
         window.addEventListener('resize', () => {
-             if (contactPopup.style.display === 'block') {
-                 hidePopup();
-             }
+            if (contactPopup.style.display === 'block') hidePopup();
         });
     }
 });
