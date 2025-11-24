@@ -22,9 +22,6 @@
         body {
             font-family: "Montserrat", sans-serif;
         }
-        .user-profile-wrapper {
-            display: flex;
-        }
         .user-social {
             margin: 200px auto; /* Change the top-bottom margin to 0 */
             width: 700px; /* Change this to 100% */
@@ -93,20 +90,49 @@
             gap: 1rem;
             align-items: center;
         }
+
+        /* Stuff I added */
+
+        .content-section {
+            display: center;
+            flex-direction: center;
+            margin: none;
+            padding: none;
+            border-radius: 8px;
+            align-self: center;
+        }
+
+        .content-section .image-container {
+            display: center;
+            align-content: right;
+        }
+
+
+
+
     </style>
 </head>
 <body>
+    <section class="content-section">
+        <div class="image-container">
+            <img src="images/profile.jpg">
+        </div>
+        <div class="flex-box">
+        </div>
+    </section>
+
+
+
+
     <div class="user-social">
-        <div class="user-profile-wrapper">
-            <div class="user-profile">
-                <div class="user-image">
-                    <!-- Source: https://randomuser.me/-->
-                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Random User Image">
-                </div>
-                <div class="user-info">
-                    <h4>Jane Doe</h4>
-                    <p><a href="mailto:jane.doe@example">jane.doe@example.com</a></p>
-                </div>
+        <div class="user-profile">
+            <div class="user-image">
+                <!-- Source: https://randomuser.me/-->
+                <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Random User Image">
+            </div>
+            <div class="user-info">
+                <h4>Jane Doe</h4>
+                <p><a href="mailto:jane.doe@example">jane.doe@example.com</a></p>
             </div>
         </div>
         <div class="share-icon">
