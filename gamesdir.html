@@ -1,0 +1,65 @@
+<!--TODO: CLEAR GIT COMMITS TO REMOVE PERSONAL/REVEALING INFO.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grumpyman1's Website</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Mono&family=Jersey+15&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Web Awesome -->
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css">
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/webawesome.loader.js"></script>
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="styles/gamesdir.css">
+
+    <style>
+      wa-tooltip::part(base__popup) {
+        background-color: var(--dark-gray);
+        color: var(--lighter);
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+</head>
+  
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="container">
+            <ul class="games-list">
+                <li><a href="https://google.com" target="_blank">Flappy Bird</a></li>
+                <li><a href="#">phone (not actually)</a></li>
+                <li><a href="#">github</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+          $("#header-placeholder").load("header.html", function() {
+            // This code runs *after* the header is loaded, then loads main.js
+            $.getScript("scripts/main.js");
+          });
+          $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+</body>
+</html>
