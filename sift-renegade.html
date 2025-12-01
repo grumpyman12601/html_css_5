@@ -36,11 +36,19 @@
 
     <main>
         <div class="container">
-            <div class="game-container">
-                <iframe src="https://www.miniplay.com/helpers/game/sandbox.php?mp_assets=https%3A%2F%2Fs2.minijuegosgratis.com%2F&mp_embed=0&mp_game_id=11793&mp_game_uid=sift-renegade&mp_game_url=https%3A%2F%2Fwww.miniplay.com%2Fgame%2Fsift-renegade&mp_int=1&mp_locale=en_US&mp_player_type=FLASH&mp_player_url=aHR0cHM6Ly93d3cubWluaWp1ZWdvc2dyYXRpcy5jb20vdjMvZ2FtZXMvZ2FtZXMvcHJvZC8xMTc5My9zaWZ0cmVuZWdhZGUxLnN3Zg%3D%3D&mp_site_https_url=https%3A%2F%2Fwww.miniplay.com%2F&mp_site_name=miniplay.com&mp_site_url=https%3A%2F%2Fwww.miniplay.com%2F&mp_timezone=America%2FChicago&mp_view_type=" width="800" height="600" title="Moto X3M 1, a 2d game about doing stunts on a motorcycle."></iframe>
+            <div class="game-container" id="game-container">
+                <script src="https://xxsibxx.github.io/ruffleembedsetup112/ruffle/ruffle.js"></script>
+                <div class="ruffle-embed">
+                    <embed width="900" height="670" pluginspage=" http://www.macromedia.com/go/getflashplayer" src="https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf" type="application/x-shockwave-flash"></embed>
+                </div>
+                <div class="game-controls">
+                  <p class="game-description">Sift Renegade 1 is a 2d story based stickman fighting game. It was published on Dec 22nd, 2008 by Pyrozen. <br> (SR3: Defiance is the best in the series)<br> Controls: WASD, Spacebar, LMB.</p>
+                  <button id="fullscreen-button" aria-label="Toggle Fullscreen"><i class="fa-solid fa-expand"></i></button>
+                </div>
             </div>
         </div>
     </main>
+
 
     <div id="footer-placeholder"></div>
 
@@ -57,6 +65,27 @@
             $.getScript("scripts/main.js");
           });
           $("#footer-placeholder").load("footer.html");
+
+          const fullscreenButton = document.getElementById('fullscreen-button');
+          const gameContainer = document.getElementById('game-container');
+
+          fullscreenButton.addEventListener('click', () => {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                gameContainer.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            }
+          });
+
+          document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                fullscreenButton.innerHTML = '<i class="fa-solid fa-compress"></i>';
+            } else {
+                fullscreenButton.innerHTML = '<i class="fa-solid fa-expand"></i>';
+            }
+          });
         });
     </script>
 </body>
