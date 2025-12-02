@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dresser Example</title>
+    <title>Article component</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/webawesome.loader.js"></script>
     <style>
         :root {
-            --light-gray: rgb(220, 220, 220);
-            --dark-gray: rgb(50, 50, 50);
+            --light-grayish-blue: hsl(210, 46%, 95%);
+            --desaturated-dark-blue: hsl(214, 17%, 51%);
+            --grayish-blue: hsl(212, 23%, 69%);
+            --very-dark-grayish-blue: hsl(217, 19%, 35%);
         }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f0f2f5;
-            font-family: "Montserrat", sans-serif;
+            background-color: var(--light-grayish-blue);
+            font-family: "Manrope", sans-serif;
         }
 
         .container {
@@ -31,173 +33,248 @@
             width: 90%;
             max-width: 350px;
             background-color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
 
-        .image-container picture img {
-            width: 100%;
+        .image-container {
+            background-image: url('images/dresser-cropped.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
             display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         .content-box {
-            padding: 0px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1; /* allow space */
-            gap: 20px; /* Space between text and profile */ 
+            /* No padding here */
+        }
+
+        .text-content {
+            padding: 30px 30px 0 30px;
         }
 
         .text-content h1 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--very-dark-grayish-blue);
         }
 
         .text-content p {
-            color: #555;
+            color: var(--desaturated-dark-blue);
             line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .user-social {
-            width: 100%;
-            border: 2px solid #ccc;
-            border-radius: 20px;
-            padding: 0px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-sizing: border-box;
-            margin-top: auto;
+            padding: 20px 30px;
+            transition: background-color 0.3s ease;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
-        .user-profile {
+
+        .profile-view {
             display: flex;
-            flex-direction: row;
             align-items: center;
-            gap: 10px;
+            width: 100%;
         }
+
         .user-image img {
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
         }
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
-        }
+
         .user-info h4 {
-            font-size: 1.1em;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin: 0;
+            color: var(--very-dark-grayish-blue);
+        }
+
+        .user-info p {
+            font-size: 0.8em;
+            color: var(--grayish-blue);
             margin: 0;
         }
-        .user-info a {
-            color: #555;
-            text-decoration: none;
-            font-size: 0.8em;
-        }
-        .user-info a:hover {
-            text-decoration: underline;
-        }
-        .share-icon {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .share-icon i {
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
+
+        .share-button {
+            background-color: var(--light-grayish-blue);
+            border: none;
             border-radius: 50%;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1em;
-        }
-        .share-icon i:hover {
-            background-color: var(--dark-gray);
-            color: var(--light-gray);
             cursor: pointer;
-        }
-        .share-icon a {
-            text-decoration: none;
-        }
-        .share-popover {
-            display: flex; 
-            flex-direction: row; 
-            gap: 0.5rem;
-            align-items: center;
-            font-size: 0.9em;
+            margin-left: auto;
+            z-index: 5;
         }
 
-        /* Mobile view */
+        .share-button i {
+            color: var(--desaturated-dark-blue);
+        }
+        
+        .share-view {
+            display: none;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .share-view p {
+            color: var(--grayish-blue);
+            letter-spacing: 5px;
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        .share-view a {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .desktop-share-popover {
+            --wa-popover-padding: 0;
+            --wa-popover-border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .share-popover-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--very-dark-grayish-blue);
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        .share-popover-content p {
+            color: var(--grayish-blue);
+            letter-spacing: 5px;
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        .share-popover-content a {
+            color: white;
+            font-size: 1.2em;
+        }
+
+
         @media (max-width: 767px) {
-            .user-social {
+            .image-container {
+                background-image: url('images/profile.jpg');
+            }
+            .user-social.share-active {
+                background-color: var(--very-dark-grayish-blue);
+            }
+            .user-social.share-active .profile-view {
                 display: none;
+            }
+            .user-social.share-active .share-view {
+                display: flex;
+            }
+            .user-social.share-active .share-button {
+                background-color: var(--desaturated-dark-blue);
+            }
+            .user-social.share-active .share-button i {
+                color: white;
+            }
+            .desktop-share-popover {
+                display: none !important;
             }
         }
 
-        /* Tablet/Desktop view */
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
-                max-width: 800px;
-                 align-items: stretch; /* Make columns equal height */
+                max-width: 700px;
+                overflow: hidden;
             }
-
             .image-container {
-                flex-basis: 50%;
+                flex-basis: 40%;
+                height: auto;
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 10px;
             }
-
             .content-box {
-                flex-basis: 50%;
-                margin-left: 10px;
+                flex-basis: 60%;
+            }
+             .text-content {
+                padding-bottom: 20px;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="image-container">
-            <picture>
-                <source srcset="images/dresser-cropped.jpg" media="(min-width: 768px)">
-                <img src="images/profile.jpg" alt="A green dresser with decor on top.">
-            </picture>
+        <div class="image-container" role="img" aria-label="A green dresser with decor on top.">
         </div>
         <div class="content-box">
             <div class="text-content">
-                <h1><strong>Shift the overall look and feel by adding these wonderful touches to furniture in your home.</strong></h1>
+                <h1>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
                 <p>Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.</p>
             </div>
-            <div class="user-social">
-                <div class="user-profile">
+             <div class="user-social">
+                <div class="profile-view">
                     <div class="user-image">
-                        <!-- Source: https://randomuser.me/-->
-                        <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Random User Image">
+                        <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Michelle Appleton">
                     </div>
                     <div class="user-info">
-                        <h4>Jane Doe</h4>
-                        <p><a href="mailto:jane.doe@example.com">jane.doe@example.com</a></p>
+                        <h4>Michelle Appleton</h4>
+                        <p>28 Jun 2020</p>
                     </div>
+                    <button class="share-button" id="share-btn">
+                        <i class="fas fa-share"></i>
+                    </button>
                 </div>
-                <div class="share-icon">
-                    <wa-popover for="share-btn">
-                        <div class="share-popover">
-                            <p>SHARE</p>
-                            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="https://bsky.app" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
-                        </div>
-                    </wa-popover>
-                    <i class="fa-solid fa-share" id="share-btn"></i>
+                <div class="share-view">
+                    <p>SHARE</p>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <button class="share-button" id="share-btn-close">
+                        <i class="fas fa-share"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <wa-popover for="share-btn" placement="top" class="desktop-share-popover">
+        <div class="share-popover-content">
+            <p>SHARE</p>
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </wa-popover>
+
+    <script>
+        const shareButtons = document.querySelectorAll('.share-button');
+        const userSocial = document.querySelector('.user-social');
+
+        shareButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (window.innerWidth < 768) {
+                    userSocial.classList.toggle('share-active');
+                } else {
+                    // Popover is handled by the web component, but we prevent the mobile logic
+                    e.stopPropagation(); 
+                }
+            });
+        });
+    </script>
 </body>
 </html>

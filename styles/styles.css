@@ -801,6 +801,18 @@ body.light-mode .cta-button:hover {
     box-shadow: var(--shadow-lg);
 }
 
+body.light-mode .popup-container {
+    display: none;
+    position: absolute;
+    background-color: rgba(228, 227, 227, 0.9);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    z-index: 1001;
+    width: 350px;
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
 .popup-content {
     position: relative;
 }
@@ -821,9 +833,32 @@ body.light-mode .cta-button:hover {
     border: 1px solid var(--primary);
 }
 
+body.light-mode .close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+    background: #f0f0f0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid var(--primary);
+}
+
 .form-container h2 {
     text-align: center;
     color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+body.light-mode .form-container h2 {
+    text-align: center;
+    color: var(--darker);
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -850,6 +885,18 @@ textarea {
     border-radius: 5px;
 }
 
+body.light-mode input,
+body.light-mode textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;
+    background-color: #d3d3d3;
+    color: #000000;
+    border-radius: 5px;
+}
+
+
 .submit-button {
     background-color: var(--primary);
     color: #000;
@@ -862,8 +909,24 @@ textarea {
     transition: background-color 0.3s ease;
 }
 
+body.light-mode .submit-button {
+    background-color: #222222;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
 .submit-button:hover {
-    background-color: #00b300;
+    background-color: #ffffff;
+}
+
+body.light-mode .submit-button:hover {
+    background-color: #000000;
 }
 
 
@@ -871,7 +934,7 @@ textarea {
 .train-container {
     position: fixed;
     top: 50%;
-    left: -400px; 
+    left: -400px;  
     transform: translateY(-50%) scaleX(-1);
     z-index: 1001;
     white-space: pre;
