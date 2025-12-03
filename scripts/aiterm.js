@@ -1,11 +1,10 @@
-let terminalBody; // ✅ FIX: moved from const at top
+const terminalBody = document.getElementById('terminal-body');
 
 /* ============================
    FILESYSTEM (UNCHANGED)
 ============================ */
-const filesystem = {
-    ...
- };
+const filesystem = /* KEEP YOUR HUGE FILESYSTEM OBJECT EXACTLY AS IT IS */;
+
 /* ============================
    STATE
 ============================ */
@@ -206,6 +205,7 @@ function processCommand(commandText, onComplete) {
         return;
       }
 
+      // Assume URL fallback
       let url = argument;
       if (!url.startsWith("http")) url = "https://" + url;
       window.location.href = url;
@@ -225,15 +225,8 @@ function processCommand(commandText, onComplete) {
 }
 
 /* ============================
-   BOOT (✅ REAL FIX IS HERE)
+   BOOT
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
-  terminalBody = document.getElementById("terminal-body");
-
-  if (!terminalBody) {
-    console.error("Terminal error: #terminal-body not found.");
-    return;
-  }
-
   createNewInputLine();
 });

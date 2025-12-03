@@ -1,0 +1,131 @@
+<!--TODO: CLEAR GIT COMMITS TO REMOVE PERSONAL/REVEALING INFO.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grumpyman1's Website</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Mono&family=Jersey+15&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Web Awesome -->
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/styles/webawesome.css">
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.6/dist/webawesome.loader.js"></script>
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+      wa-tooltip::part(base__popup) {
+        background-color: var(--dark-gray);
+        color: var(--lighter);
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+</head>
+<div class="site-banner" style="display: none;">
+    <p>This is a site banner!</p>
+  </div>
+  
+<body>
+      <div id="header-placeholder"></div>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content" id="about">
+                <h1>grumpyman1's grid template</h1>
+            </div>
+        </section>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial purple"></div>
+            <div class="testimonial grey"></div>
+            <div class="testimonial white"></div>
+            <div class="testimonial black"></div>
+            <div class="testimonial eggshell"></div>
+
+        </div><!-- Closes testimonial-grid -->
+
+    <p> Data table </p>
+    <div class="data-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Column A</th>
+                    <th>Column B</th>
+                    <th>Column C</th>
+                    <th>Column D</th>
+                    <th>Column E</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1A</td>
+                    <td>1B</td>
+                    <td>1C</td>
+                    <td>1D</td>
+                    <td>1E</td>
+                </tr>
+                <tr>
+                    <td>2A</td>
+                    <td>2B</td>
+                    <td>2C</td>
+                    <td>2D</td>
+                    <td>2E</td>
+                </tr>
+                <tr>
+                    <td>3A</td>
+                    <td>3B</td>
+                    <td>3C</td>
+                    <td>3D</td>
+                    <td>3E</td>
+                </tr>
+                <tr>
+                    <td>4A</td>
+                    <td>4B</td>
+                    <td>4C</td>
+                    <td>4D</td>
+                    <td>4E</td>
+                </tr>
+                <tr>
+                    <td>5A</td>
+                    <td>5B</td>
+                    <td>5C</td>
+                    <td>5D</td>
+                    <td>5E</td>
+                </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div> <!-- Closes data-table -->
+        
+<!-- Back to top button -->
+<div class="back-to-top" id="backToTop" aria-label="Back to top">
+   <i class="fa-solid fa-arrow-up"></i>
+</div>
+
+<div id="footer-placeholder"></div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="scripts/term.js"></script>
+<script>
+    $(function(){
+      $("#header-placeholder").load("header.html", function() {
+        $.getScript("scripts/main.js");
+      });
+      $("#footer-placeholder").load("footer.html");
+    });
+</script>
+</body>
+</html>
