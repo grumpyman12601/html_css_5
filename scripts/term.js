@@ -1,7 +1,7 @@
 let terminalBody; // ✅ FIX: moved from const at top
 
 /* ============================
-   FILESYSTEM (UNCHANGED)
+   FILESYSTEM (generated using )
 ============================ */
 const filesystem = {
   "type": "directory",
@@ -2682,7 +2682,7 @@ function resolvePath(path) {
 ============================ */
 function typeWriter(text, outputElement, callback) {
   let i = 0;
-  const speed = 20;
+  const speed = 2;
 
   function type() {
     if (i < text.length) {
@@ -2769,6 +2769,7 @@ function processCommand(commandText, onComplete) {
         "go    - Navigates to a page or URL.<br>" +
         "clear - Clears the terminal screen.<br>" +
         "ls    - Lists files and directories.<br>" +
+        "sl    - i like trains<br>" +
         "cd    - Changes the current directory.";
       break;
 
@@ -2780,6 +2781,37 @@ function processCommand(commandText, onComplete) {
         outputText = "ls: not a directory";
       }
       break;
+    
+      case 'sl':
+        const train = document.createElement('div');
+        train.classList.add('train-container');
+        
+        // Set the train text
+        train.textContent = 
+            "      ====      ========\n"+
+            "  ____||__  __  |      |\n"+
+            " |  |  |  ||  | |      | \n"+
+            "/--O-O-O-O-O-O-O-O-O-O-\\\n";
+    
+        // If light mode, set text color black
+        if (document.body.classList.contains('light-mode')) {
+            train.style.color = '#000';
+        } else {
+            train.style.color = '#fff';
+        }
+    
+        // Append to terminal body
+        terminalBody.appendChild(train);
+    
+        // Immediately call onComplete so terminal continues accepting input
+        if (onComplete) onComplete();
+    
+        // Remove the train after animation duration
+        setTimeout(() => {
+            if (train.parentNode) train.parentNode.removeChild(train);
+        }, 5000); // match the CSS animation
+        return;
+    
 
     case "cd":
       if (!argument || argument === "~") {
@@ -2851,7 +2883,7 @@ function processCommand(commandText, onComplete) {
 }
 
 /* ============================
-   BOOT (✅ REAL FIX IS HERE)
+   BOOT
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
   terminalBody = document.getElementById("terminal-body");
