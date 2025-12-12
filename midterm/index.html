@@ -2,164 +2,152 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
-  <title>Insure | Drew Hammer</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script defer src="javascript/main.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Insure landing page</title>
 </head>
-<body>
-  <header>
-    <div id="header-grid">
-        <nav id="header-mobile-nav">
-            <div id="header-logo">
-              <a href="#">
-                <img src="images/logo.svg"
-                alt="Insure Logo">
-              </a>
-            </div>
-            <div id="mobile-nav">
-              <img src="images/icon-hamburger.svg" class="hamburger" alt="Mobile navigation button"></div>
-        </nav>
-        <nav id="header-bottom-nav">
-        <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Company</a></li>
-            <li><a href="#">Connect</a></li>
-        </ul>
-        </nav>
-    </div>
+  <body>
+    <header>
+      <div id="header-grid">
+          <nav id="header-mobile-nav">
+              <div id="header-logo">
+                <a href="#">
+                  <img src="images/logo.svg" alt="Insure SVG Logo">
+                </a>
+              </div>
+              <nav class="navbar">
+                <ul>
+                    <li><a href="index.html#about">How We Work</a></li>
+                    <li><a href="index.html#experience">Blog</a></li>
+                    <li><a href="index.html#projects">Account</a></li>
+                    <li><a href="index.html#contact">View Plans</a></li>
+                </ul>
+            </nav>
 
-    <div id="family-walking">
+              <div id="mobile-nav"><i class="fa-solid fa-bars"></i></div>
+          </nav>
+          <nav id="header-bottom-nav" style="display: none">
+            <ul>
+                <li><a href="#">HOW WE WORK</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ACCOUNT</a></li>
+                <li><a href="#">VIEW PLANS</a></li>
+            </ul>
+          </nav>
+      </div>
 
-    </div>
-    <div id="jumbotron">
-
-
-      <h1>Humanizing your insurance.</h1>
-      <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that's right for you. Ensure you and your loved ones are protected.</p>
-      <a href="#" class="btn">View Plans</a>
-      
-    </div>
-
-  </header>
-
-  <div id="jumbotron2">
-<!--Keeping just in case-->  
-  </div>
-
-  <main>
-    <img
-    class="desktop-left-decor-pattern"
-    src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581473824/bg-pattern-intro-left-desktop_htcyuz.svg"
-    alt="insure decoration pattern">
-    <section class="main_about">
-      <div class="hr"></div>
-      <h2>We're different</h2>
-      <div class="about-services">
-        <div class="snappy-process">
-          <img src="images/icon-snappy-process.svg"
-            alt="icon for snappy process">
-          <h3>Snappy Process</h3>
-          <p>
-            Our application process can be completed in minutes, not hours. <br>Don’t get stuck filling in tedious forms.
-          </p>
+      <div id="jumbotron">
+        <div id="jumbotron-image">
+         <picture> <!-- taken from ch11/08_picture_element/ -->
+          <source media="(min-width: 768px)" srcset="images/image-intro-desktop.jpg">
+          <img id= "family" src="images/image-intro-mobile.jpg" alt="picture of family">
+         </picture>
         </div>
-        <div class="Affordable-prices">
-          <img
-            src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581474073/icon-affordable-prices_mvi5se.svg"
-            alt="icon Affordable prices service being offered">
-          <h3>Affordable Prices</h3>
-          <p>
-            We don’t want you worrying about high monthly costs. Our prices <br>
-            may be low, but we still offer the best coverage possible
-          </p>
-        </div>
-        <div class="people-first">
-          <img
-            src="https://res.cloudinary.com/dxayftnxb/image/upload/v1581474092/icon-people-first_ozsx4g.svg"
-            alt="icon people first service being offered">
-          <h3>People First</h3>
-          <p>
-            Our plans aren’t full of conditions and clauses to prevent <br>
-            payouts. We make sure you’re covered when you need it.
-          </p>
+        <div id="jumbotron-text">
+          <h1>Humanizing your insurance</h1>
+          <p>Get your life insurance coverage easier and faster. We blend our expertise 
+            and technology to help you find the plan that's right for you. Ensure you 
+            and your loved ones are protected.</p>
+          <a href="#" class="btn">View plans</a>
         </div>
       </div>
-    </section>
-  <div id="jumbotron2">
-    <img
-    class="desktop-right-decor-pattern"
-    src="images/bg-pattern-intro-right-desktop.svg"
-    alt="insure decoration pattern">
+    </header>
 
-      <h1>Find out more <br> about how we work</h1>
-      <a href="#" class="btn">HOW WE WORK</a>
+    <p class="line"></p>
+
+    <main>
+      <h1>We're different</h1>
+
+      <div id="cards">
+        <article>
+          <img src="images/icon-snappy-process.svg" alt="snappy process">
+          <h2>Snappy Process</h2>
+          <p>Our application process can be completed in minutes, not hours. Don't get stuck filling in tedious forms.</p>
+        </article>
       
+        <article>
+          <img src="images/icon-affordable-prices.svg" alt="affordable prices">
+          <h2>Affordable Prices</h2>
+          <p>We don't want you worrying about high monthly costs. Our prices may be low, but we still offer the best coverage possible.</p>
+        </article>
+
+        <article>
+          <img src="images/icon-people-first.svg" alt="people first icon">
+          <h2>People First</h2>
+          <p>Our plans aren't full of conditions and clauses to prevent payouts. We make sure you're covered when you need it.</p>
+        </article>
+      </div>
+
+    </main>
+
+    <div id="about">
+      <h1>Find out more about how we work</h1>
+      <a href="#" class="btn">How we work</a>
     </div>
 
-  </main>
+    <footer>
+      <div id="footer-top">
+        <img src="images/logo.svg" alt="Insure SVG Logo">
+        <div id="social">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <p class="line"></p>
 
-  <footer>
-    <div class="footer">
-    <img src="images/logo.svg" alt="Insure Logo">
-    <nav id="footer-bottom-nav">
-      <ul class="fa-ul">
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-firefox"></i></a></li>
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-      </ul>
-      </nav>
-    <hr>
-    <h3>Our Company</h3>
-    <ul>
-      <li><a href="#">HOW WE WORK</a></li>
-      <li><a href="#">WHY INSURE?</a></li>
-      <li><a href="#">VIEW PLANS</a></li>
-      <li><a href="#">REVIEWS</a></li>
-    </ul>
-    <h3>Help Me</h3>
-    <ul>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">TERMS OF USE</a></li>
-      <li><a href="#">PRIVACY POLICY</a></li>
-      <li><a href="#">LIVE CHAT</a></li>
-    </ul>
-    <h3>Contact</h3>
-    <ul>
-      <li><a href="#">SALES</a></li>
-      <li><a href="#">SUPPORT</a></li>
-      <li><a href="#">LIVE CHAT</a></li>
-    </ul>
-    <h3>Others</h3>
-      <ul>
-        <li><a href="#">CAREERS</a></li>
-        <li><a href="#">PRESS</a></li>
-        <li><a href="#">LICENSES</a></li>
-      </ul>
-    </div><!-- Closes class="footer"-->
-  </footer>
+      <div id="footer-bottom">
+        <div class="col">
+          <h3>Our company</h3>
+          <ul>
+            <li><a href="#">How we work</a></li>
+            <li><a href="#">Why Insure?</a></li>
+            <li><a href="#">View plans</a></li>
+            <li><a href="#">Reviews</a></li>
+          </ul>
+        </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <div class="col">
+          <h3>Help me</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="#">Sales</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Live chat</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h3>Others</h3>
+          <ul>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Licenses</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

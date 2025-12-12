@@ -1,279 +1,406 @@
+:root{
+--GrayDark: hsl(270, 9%, 17%);
+--GrayMedium: hsl(273, 4%, 51%);
+--GrayLight: hsl(0, 0%, 98%);
+}
 * {
     max-width: 100%;
-    max-height: 100%;
     box-sizing: border-box;
 }
 
-:root {
-
-    --DarkViolet: hsl(256, 26%, 20%);
-    --GrayishBlue: hsl(216, 30%, 68%);
-
-    --VeryDarkViolet: hsl(270, 9%, 17%);
-    --DarkGrayishViolet: hsl(273, 4%, 51%);
-    --light-gray: hsl(0, 0%, 98%);
-
-    --fw-DM: 400;
-
-    --fw-KarlaRegular: 400;
-    --fw-KarlaBold: 700;
-}
-
-body {
-    font-family: "Karla", sans-serif;
+body{
+    font-family: "DM Serif Display", serif;
     font-weight: 400;
     font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "DM Serif Display", serif;
-    font-weight: 700;
-    font-style: normal;
+#mobile-nav{
+    display:inline-block;
+    padding: 3px;
+    align-content:end;
+    border: solid black 2px;
 }
-
-
-.footer h3 {
-    font-family: "Karla", serif;
-    font-weight: 1100;
-    font-size: 20px;
-}
-
-h3 {
-    font-family: "Karla", serif;
-    font-weight: 1100;
-    font-size: 32px;
-}
-header {
-    background: var(--white);
-    border-radius: 0 0 0 0px;
-}
-
 #header-mobile-nav {
-    padding: 16px 16px 8px;
-    display: flex; /* Places the contact button and mobile nav on same horizontal line */
-    justify-content: space-between; /* Places the contact button on left and mobile navigation on right */
-    align-items: center; /* Vertically centers the contact button with the mobile navigation */
+    padding: 24px 16px 16px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 #mobile-nav {
-    color: white;
-    font-size: 2em; /* Makes the navigation icon bigger */
-    margin: 0 0.25em; /* Adds space to the left/right of the mobile nav */
+    font-size: 1em; 
+    margin: 0 0.25em; 
     cursor: pointer;
 }
 
 #header-bottom-nav {
-    background-color: white;
+    background-color: var(--GrayDark);
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0;
     z-index: 1;
     width: 100%;
-    display: none;
-}
-
-#header-bottom-nav li {
-    border-bottom: 1px solid lightgrey;
 }
 
 #header-bottom-nav a {
-    font-size: 1.2em; /* Increases font-size 20% */
-    display: block; /* A tags are inline elements by default. Making this a block allows you to add top/bottom padding and margin, and makes it full width */
+    font-size: 1.2em;
+    display: block;
     padding: 20px;
     text-decoration:none;
-    color: var(--gray-dark);
+    color: white;
     font-weight: 700;
-}
-
-#footer ul li:hover path {
-    fill: var(--VeryDarkViolet);
-}
-
-
-#footer ul {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#footer ul li {
-    padding: 10px;
-    transition: 0.3s;
+    text-align: center;
+    border: solid var(--GrayDark) 2px;
 }
 
 #header-bottom-nav .active, #header-bottom-nav a:hover {
-    color: var(--gray-dark);
+    border: solid white 2px;
 }
-
-#jumbotron {
-    padding: 150px 40px;
+#jumbotron-text {
+    padding: 100px 40px;
     text-align: center;
-    background-color: var(--DarkViolet);
+    background-color: var(--GrayDark);
+    color: white;
 }
-#jumbotron intro-mobile {
-    display: block;
-    background-color: var(--DarkViolet);
-
-}
-
-#jumbotron2 {
-    padding: 85px 40px;
-    text-align: center;
-    background-color: var(--DarkViolet);
-}
-#jumbotron2 intro-mobile {
-    display: block;
-    background-color: var(--DarkViolet);
-
-}
-#jumbotron2 h1 {
+#jumbotron-text h1 {
     font-size: 2.5em;
     line-height: 1.2em;
     font-weight: 500;
     margin: 30px 0;
-    color: var(--light-gray)
 }
-
-
-#family-walking {
-    background-image: url("../images/image-intro-mobile.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 400px;
-    width: 100%;
-    position: relative;
-    margin: 0 0px;
-}
-.intro-mobile {
-    margin-bottom: 10px;
-}
-#jumbotron h1 {
-    font-size: 2.5em;
+#jumbotron-text h2 {
+    font-size: 1.7em;
     line-height: 1.2em;
     font-weight: 500;
     margin: 30px 0;
-    color: var(--light-gray)
 }
-
-#jumbotron p {
+#jumbotron-text p {
     font-size: 1.4em;
     line-height: 1.4em;
     font-weight: 300;
     margin: 30px 0;
-    color: var(--light-gray)
 }
-
+#family{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
 .btn {
     padding: 12px 24px 10px;
     border: 2px solid white;
-    border-radius: 0px;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
-
-.btn-filled {
+main {
+    padding: 0 40px 50px;
+    text-align: center;
     background-color: white;
-    color: var(--gray-dark);
+    color: white;
+}
+main h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+    color: var(--GrayDark);
+}
+main h2 {
+    font-size: 1.7em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+    color: var(--GrayDark);
+}
+main p {
+    font-size: 1em;
+    line-height: 1.4em;
+    font-weight: 300;
+    margin: 30px 0;
+    color: var(--GrayMedium);
+}
+#about {
+    margin: 0 auto 50px;
+    text-align: center;
+    background-color: var(--GrayDark);
+    color: white;
+    width: 90%;
+    height: 100%;
+    padding-bottom: 2em;
+    padding: 50px 0 80px;
+}
+#about h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+}
+#about h2 {
+    font-size: 1.7em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 30px 0;
+}
+#about p {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-weight: 300;
+    margin: 30px 0;
 }
 
 
-footer {
-    background-color: var(--gray-light);
+
+ /* desktop view footer */
+@media (min-width: 762px) {
+    footer {
+    background-color: white;
     text-align: center;
-    padding: 100px 40px;
-    border-radius: 0 100px 0 0;
+    padding: 20px 40px;
+    border-top: 1px solid white;
+    color: var(--GrayDark);
+}
+#mobile-nav {
+    display: none;
 }
 
 footer h3 {
-    color: var(--DarkGrayishViolet);
+    color: var(--GrayDark);
     margin: 20px 0;
 }
 
 footer a {
-    color: var(--gray-light);
+    color: black;
     text-decoration: none;
     padding: 5px;
     display: inline-block;
 }
 
-footer hr {
+#footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#social a {
+    margin-left: 15px;
+    font-size: 1.5em;
+    color: var(--GrayDark);
+    font-family: "DM Serif Display";
+    padding-block: 60px;
+}
+
+footer.line {
+    border-color: var(--GrayLight)
+}
+
+
+#footer-bottom h3 {
+    margin-bottom: 15px;
+    color: var(--GrayDark)
+}
+
+#footer-bottom ul {
     padding: 0px;
-    margin-top: 20px;
-    margin-bottom: 30px;
 }
 
-footer a:hover {
+#footer-bottom li {
+    margin-bottom: 10px;
+}
+#footer-bottom a {
+    color: var(--GrayMedium);
+    text-decoration: none;
+}
+
+#footer-bottom a:hover {
     text-decoration: underline;
 }
-
-main {
-    text-align: center;
-    padding: 100px 50px;
-}
-
-main h2 {
-    font-size: 2em;
-    line-height: 1.2em;
-    font-weight: 500;
-    margin: 40px 0;
-    color: var(--gray-dark);
-}
-
-main p {
-    color: var(--gray-medium);
-    font-size: 1.2em;
-    line-height: 1.6em;
-    font-weight: 300;
-    margin: 20px 0;
-}
-
-#infrastructure {
-    background-color: var(--gray-light);
-    margin: 0 -50px;
-    width: 100
-}
-
-#infrastructure h2, #infrastructure p {
-    color: white;
 }
 
 
-#footer-bottom-nav ul {
-    display: flex; /* Places block items side-by-side */
-    justify-content: center; /* Centers flex content horizontally */
-    align-items: center; /* Vertically centers the icons */
-    margin: 0.5em 0; /* Adds space above/below the top nav */
-    gap: 1em; /* Adds space between the icons */
+/* desktop view jumbotron (taken from assignments/demo-project */
+
+@media (min-width: 756px) {
+    #jumbotron {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #jumbotron-image, #jumbotron-text {
+      width: 50%;
+    }
+    #jumbotron-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* default value is stretch */
+      justify-content: center; /* When working with flex-direction: column, justify-content refers to the verical alignment */
+      gap: 10px;
+    }
+    }
+    
+    #jumbotron-text {
+      padding: 1.5em;
+      position: center;
+    }
+    
+    #jumbotron-text h1 {
+      color: var(--blue);
+      font-size: 3.5em;
+      font-weight: normal; /* Don't make the text bold */
+      line-height: 1.25em;
+      text-decoration: none;
+      text-align: center;
+    }
+    
+    #jumbotron-text p {
+      color: white;
+      margin: 1em 0; /* Add space above and below paragraph */
+      line-height: 1.25em;
+    }
+
+    /* main section */
+    @media (min-width: 762px) {
+        main {
+        background-color: white;
+        text-align: center;
+        padding: 20px 40px;
+        border-top: 1px solid white;
+        color: var(--GrayDark);
+    }
+    
+    main h1 {
+        color: var(--GrayDark);
+        margin: 20px 0;
+    }
+    
+    main #cards{
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 30px;
+        text-align: left;
+    }
+    
+    #footer-bottom h3 {
+        margin-bottom: 15px;
+        color: var(--GrayDark)
+    }
+    
+    #footer-bottom ul {
+        padding: 0px;
+    }
+    
+    #footer-bottom li {
+        margin-bottom: 10px;
+    }
+    #footer-bottom a {
+        color: var(--GrayMedium);
+        text-decoration: none;
+    }
+    
+    #footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    }
+
+
+    /* navbar taken from my website */
+
+    @media (max-width: 762px) {
+        .navbar {
+            display: none;
+            position: absolute;
+            top: 103px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            overflow: hidden;
+        }
+
+        .navbar.open { display: block; }
+        .navbar ul { flex-direction: column; width: 100%; text-align: center; }
+        .mobile-menu-button { display: block; }
+    }
+
+    
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        .navbar li {
+            margin-left: 20px;
+        }
+        
+        .navbar a {
+            color: rgb(0, 0, 0);
+            font-size: var(--font-size-sm);
+            font-weight: bold;
+            padding: 12px 16px;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all .40s ease;
+        }
+        
+        .navbar a:hover {
+            background: rgb(75, 75, 75);
+            color: rgb(255, 255, 255);
+        }
+
+               
+
+        #footer-bottom {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+/* mobile view footer */
+@media (max-width: 762px) {
+    footer {
+        background-color: white;
+        text-align: center;
+        padding: 20px 40px;
+        border-top: 1px solid white;
+        color: var(--GrayDark);
+    }
+
+
+    footer h3 {
+        color: var(--GrayDark);
+        margin: 20px 0;
+    }
+
+    
+
+    
+    #footer-bottom {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #footer-bottom h3 {
+        margin-bottom: 10px;
+        color: var(--GrayDark)
+    }
+    #footer-bottom ul {
+        padding: 0px;
+    }
+    #footer-bottom li {
+        margin-bottom: 10px;
+    }
+    #footer-bottom a {
+        color: var(--GrayMedium);
+        text-decoration: none;
+    }
+    #footer-bottom a:hover {
+        text-decoration: underline;
+    }
+
 }
-
-#footer-bottom-nav a {
-    margin-right: 0;
-}
-
-#footer-bottom-nav li:nth-child(3) a {
-    margin-right: 0; /* Removes added space after the last one */
-}
-
-#footer-bottom-nav a:hover {
-    text-decoration: underline;
-}
-
-#header-top-nav span {
-    color: var(--blue);
-}
-
-.desktop-left-decor-pattern {
-    position: absolute;
-    left: -0.2rem;
-    top: 35rem;
-  }
-
-  .desktop-right-decor-pattern {
-    position: absolute;
-    top: 155rem;
-    right: 0.0625rem;
-    z-index: -1;
-  }
